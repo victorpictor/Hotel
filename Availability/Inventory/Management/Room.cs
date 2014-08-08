@@ -4,7 +4,7 @@ namespace Inventory.Management
 {
     public class Room
     {
-        public int Identity;
+        public int Id;
 
         public RoomType Type;
 
