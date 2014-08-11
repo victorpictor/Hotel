@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Inventory.Management
 {
@@ -9,5 +10,10 @@ namespace Inventory.Management
         public RoomType Type;
 
         public List<BookedOnRange> BookedOn;
+
+        public bool IsAvailable(DateTime from, DateTime to)
+        {
+            return false;
+        }
     }
 }

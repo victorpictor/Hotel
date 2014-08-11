@@ -7,6 +7,6 @@ namespace Inventory.Holds
         public int RoomId;
 
         public DateTime StartDate;
-        public DateTime EndDatetDate;
+        public DateTime EndDate;
     }
 }

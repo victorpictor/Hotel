@@ -1,6 +1,9 @@
-﻿namespace Availability.Spec.RoomAvailableDefinition.TheHotelRoom
+﻿using NUnit.Framework;
+
+namespace Availability.Spec.RoomAvailableDefinition.TheHotelRoom
 {
-    public class IsAvailableWhenItsNotBookedNotConflictingGivenDates
+    [TestFixture]
+    public class IsAvailableWhenBookedOnItsNotConflictingGivenDates:Specification
     {
          
     }
