@@ -2,6 +2,7 @@
 {
     public enum RoomType
     {
-        All
+        King,
+        Queen
     }
 }

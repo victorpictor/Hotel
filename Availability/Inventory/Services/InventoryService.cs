@@ -19,7 +19,8 @@ namespace Inventory.Services
 
         public List<int> AllRooms(DateTime from, DateTime to)
         {
-            var rs = rooms.Get(RoomType.All);
+            var rs = rooms.Get(RoomType.King);
+            rs.AddRange(rooms.Get(RoomType.Queen));
 
             var notBookedYet = rs.Where(r => r.IsAvailable(from,to));
 

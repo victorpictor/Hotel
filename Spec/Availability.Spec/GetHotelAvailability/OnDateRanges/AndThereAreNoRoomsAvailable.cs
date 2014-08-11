@@ -23,7 +23,9 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
             requests = new Mock<IBookRoomRequestsRepository>();
             rooms = new Mock<IRoomRepository>();
 
-            rooms.Setup(r => r.Get(RoomType.All))
+            rooms.Setup(r => r.Get(RoomType.Queen)).Returns(new List<Room>() {});
+            
+            rooms.Setup(r => r.Get(RoomType.King))
                  .Returns(new List<Room>()
                      {
                          new Room()
@@ -52,7 +54,8 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
         [Test]
         public void It_should_get_rooms_by_type()
         {
-            rooms.Verify(r => r.Get(RoomType.All));
+            rooms.Verify(r => r.Get(RoomType.King));
+            rooms.Verify(r => r.Get(RoomType.Queen));
         }
 
         [Test]
