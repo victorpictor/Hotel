@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Holds\IBookRoomRequests.cs" />
     <Compile Include="Holds\SubmittedBookRoomRequest.cs" />
     <Compile Include="Management\BookedOnRange.cs" />
     <Compile Include="Management\Registry.cs" />

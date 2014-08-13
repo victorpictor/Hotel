@@ -40,9 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Availability\AplyHoldOnRoomAvailability.cs" />
+    <Compile Include="Availability\AppliedHoldOnRoom.cs" />
     <Compile Include="Availability\MarkRoomBooked.cs" />
     <Compile Include="Availability\UpdateNewRoomPrice.cs" />
+    <Compile Include="Markers\ICommand.cs" />
+    <Compile Include="Markers\IEvent.cs" />
+    <Compile Include="Markers\IMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sender\Bus.cs" />
+    <Compile Include="Sender\ICommandSerder.cs" />
+    <Compile Include="Sender\IEventPublisher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

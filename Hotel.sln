@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spec", "Spec", "{4BBCCC7A-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Availability.Spec", "Spec\Availability.Spec\Availability.Spec.csproj", "{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryServiceHost", "InventoryServiceHost\InventoryServiceHost.csproj", "{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,12 +43,17 @@ Global
 		{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F5B2594E-E6B1-496B-92D4-C3CFA3A225AF} = {370C119F-3044-4B4A-9696-CE0211A1256E}
+		{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA} = {370C119F-3044-4B4A-9696-CE0211A1256E}
 		{C3A8D3DF-A7ED-4187-A74E-1B02A5E95BD2} = {EA91127A-19D7-4E72-94EB-136F76642647}
 		{9FC0D899-C031-4D92-8BAD-C22001AA4851} = {EA91127A-19D7-4E72-94EB-136F76642647}
 		{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96} = {4BBCCC7A-FDE7-4858-B29E-64EFE941B017}
