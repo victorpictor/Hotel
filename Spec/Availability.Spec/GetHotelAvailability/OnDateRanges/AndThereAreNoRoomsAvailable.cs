@@ -36,8 +36,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                                          {
                                              new BookedOnRange()
                                                  {
-                                                     CheckIn = DateTime.Now.AddDays(1),
-                                                     CheckOut = DateTime.Now.AddDays(16)
+                                                     CheckIn = DateTime.Now.AddDays(1),CheckOut = DateTime.Now.AddDays(16)
                                                  }
                                          }
                              }

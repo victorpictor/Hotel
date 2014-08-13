@@ -15,8 +15,8 @@ namespace Inventory.Management
         public bool IsAvailable(DateTime from, DateTime to)
         {
             return BookedOn.All(
-                b => (b.CheckIn.Date > from && b.CheckOut.Date >= from) ||
-                     (b.CheckIn.Date < to && b.CheckOut.Date <= to));
+                b => (b.CheckIn.Date > from && b.CheckIn.Date >= to) ||
+                     (b.CheckOut.Date < to && b.CheckOut.Date <= from));
         }
     }
 }

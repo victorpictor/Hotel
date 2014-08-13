@@ -31,13 +31,11 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                         {
                             new SubmittedBookRoomRequest()
                                 {
-                                    RoomId = 2,
-                                    StartDate = DateTime.Now.AddDays(2).Date,
-                                    EndDate = DateTime.Now.AddDays(8).Date
+                                    RoomId = 2,StartDate = DateTime.Now.AddDays(2).Date,EndDate = DateTime.Now.AddDays(8).Date
                                 }
                         });
 
-            rooms.Setup(r => r.Get(RoomType.Queen)).Returns(new List<Room>() { });
+            rooms.Setup(r => r.Get(RoomType.Queen)).Returns(new List<Room>() {});
 
             rooms.Setup(r => r.Get(RoomType.King))
                  .Returns(new List<Room>()
@@ -48,11 +46,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                                  BookedOn =
                                      new List<BookedOnRange>()
                                          {
-                                             new BookedOnRange()
-                                                 {
-                                                     CheckIn = DateTime.Now.AddDays(16),
-                                                     CheckOut = DateTime.Now.AddDays(17)
-                                                 }
+                                             new BookedOnRange(){CheckIn = DateTime.Now.AddDays(16),CheckOut = DateTime.Now.AddDays(17)}
                                          }
                              },
                           new Room()
@@ -61,24 +55,16 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                                  BookedOn =
                                      new List<BookedOnRange>()
                                          {
-                                             new BookedOnRange()
-                                                 {
-                                                     CheckIn = DateTime.Now.AddDays(12).Date,
-                                                     CheckOut = DateTime.Now.AddDays(18).Date
-                                                 }
+                                             new BookedOnRange(){CheckIn = DateTime.Now.AddDays(12).Date,CheckOut = DateTime.Now.AddDays(18).Date}
                                          }
                              },
                              new Room()
                              {
-                                 Id = 2,
+                                 Id = 3,
                                  BookedOn =
                                      new List<BookedOnRange>()
                                          {
-                                             new BookedOnRange()
-                                                 {
-                                                     CheckIn = DateTime.Now.AddDays(1).Date,
-                                                     CheckOut = DateTime.Now.AddDays(7).Date
-                                                 }
+                                             new BookedOnRange(){CheckIn = DateTime.Now.AddDays(1).Date,CheckOut = DateTime.Now.AddDays(7).Date}
                                          }
                              }
                      });
