@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Inventory.Management;
+using Inventory.HotelRoom;
 using Inventory.Services.Repositories;
 
 namespace Inventory.Services
@@ -17,7 +17,7 @@ namespace Inventory.Services
             this.rooms = rooms;
         }
 
-        public List<int> AllRooms(DateTime from, DateTime to)
+        public List<RoomType> AllRooms(DateTime from, DateTime to)
         {
             var rs = rooms.Get(RoomType.King);
             rs.AddRange(rooms.Get(RoomType.Queen));
@@ -35,7 +35,7 @@ namespace Inventory.Services
                              r.EndDate.Date != to));
             }
 
-            return notBookedYet.Select(nb => nb.Id).ToList();
+            return notBookedYet.Select(nb => nb.Type).Distinct().ToList();
         }
 
     }

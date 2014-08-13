@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Inventory.Holds;
-using Inventory.Management;
+using Inventory.HotelRoom;
 using Inventory.Services;
 using Inventory.Services.Repositories;
 using Moq;
@@ -19,7 +19,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
         private Mock<IBookRoomRequestsRepository> requests;
         private Mock<IRoomRepository> rooms;
 
-        private List<int> searchResult;
+        private List<RoomType> searchResult;
 
         protected override void Given()
         {
@@ -43,6 +43,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                          new Room()
                              {
                                  Id = 1,
+                                 Type = RoomType.King,
                                  BookedOn =
                                      new List<BookedOnRange>()
                                          {
@@ -52,6 +53,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                           new Room()
                              {
                                  Id = 2,
+                                 Type = RoomType.Queen,
                                  BookedOn =
                                      new List<BookedOnRange>()
                                          {
@@ -61,6 +63,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                              new Room()
                              {
                                  Id = 3,
+                                 Type = RoomType.Queen,
                                  BookedOn =
                                      new List<BookedOnRange>()
                                          {
@@ -93,7 +96,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
         [Test]
         public void It_should_exculude_avaialble_rooms_for_given_date_range_but_with_a_hold_on_date_range()
         {
-            Assert.AreEqual(1, searchResult.FirstOrDefault(), "Should be available room #1");
+            Assert.AreEqual(RoomType.King, searchResult.FirstOrDefault(), "Should be available room #1");
         }
 
     }

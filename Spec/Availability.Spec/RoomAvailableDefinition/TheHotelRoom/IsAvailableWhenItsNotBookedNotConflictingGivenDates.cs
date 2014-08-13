@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Inventory.Management;
+using Inventory.HotelRoom;
 using NUnit.Framework;
 
 namespace Availability.Spec.RoomAvailableDefinition.TheHotelRoom

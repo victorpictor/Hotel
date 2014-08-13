@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Inventory.Management;
+using Inventory.HotelRoom;
 using Inventory.Services;
 using Inventory.Services.Repositories;
 using Moq;
@@ -16,7 +16,7 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
         private Mock<IBookRoomRequestsRepository> requests;
         private Mock<IRoomRepository> rooms;
 
-        private List<int> searchResult;
+        private List<RoomType> searchResult;
 
         protected override void Given()
         {

@@ -41,12 +41,13 @@
   <ItemGroup>
     <Compile Include="Holds\IBookRoomRequests.cs" />
     <Compile Include="Holds\SubmittedBookRoomRequest.cs" />
-    <Compile Include="Management\BookedOnRange.cs" />
-    <Compile Include="Management\Registry.cs" />
-    <Compile Include="Management\Room.cs" />
-    <Compile Include="Management\RoomType.cs" />
-    <Compile Include="Pricing\RoomPrice.cs" />
+    <Compile Include="HotelRoom\AvailableRooms.cs" />
+    <Compile Include="HotelRoom\BookedOnRange.cs" />
+    <Compile Include="HotelRoom\Room.cs" />
+    <Compile Include="HotelRoom\RoomType.cs" />
+    <Compile Include="HotelRoom\RoomPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AvailabilityService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\RoomPriceService.cs" />
     <Compile Include="Services\Repositories\IBookRoomRequestsRepository.cs" />

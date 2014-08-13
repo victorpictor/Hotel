@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Inventory.Management;
+using Inventory.HotelRoom;
 
 namespace Inventory.Services.Repositories
 {
