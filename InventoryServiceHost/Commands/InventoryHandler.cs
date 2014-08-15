@@ -9,14 +9,10 @@ namespace InventoryServiceHost.Commands
 
         public void Handle(AplyHoldOnRoomAvailability c)
         {
-            bookRoomRequests.Add(new SubmittedBookRoomRequest(){});
+            bookRoomRequests.Add(new SubmittedBookRoomRequest());
         }
 
         public void Handle(MarkRoomBooked c)
-        {
-        }
-
-        public void Handle(UpdateNewRoomPrice c)
         {
         }
     }

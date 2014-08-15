@@ -1,7 +1,10 @@
-﻿namespace Messages.Availability
+﻿using System;
+using Messages.Markers;
+
+namespace Messages.Availability
 {
-    public class MarkRoomBooked
+    public class MarkRoomBooked:ICommand
     {
-         
+        public Guid Id { get; set; }
     }
 }
