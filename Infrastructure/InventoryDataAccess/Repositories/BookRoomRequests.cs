@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Inventory.Holds;
 using Inventory.Services.Repositories;
+using MongoDB.Driver.Linq;
 
 namespace InventoryDataAccess.Repositories
 {
@@ -14,12 +16,14 @@ namespace InventoryDataAccess.Repositories
 
         public bool Exists(int roomId, DateTime @from, DateTime to)
         {
-            return false;
-        }
+            var db = new MongoDbFactory().CreateDb(new Configuration().MongoDbName);
 
-        public bool Exists(Guid roomId, DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
+            var requests = db.GetCollection<SubmittedBookRoomRequest>("SubmittedBookRoomRequests");
+
+            var unavailable = requests.AsQueryable().Where(r => r.Id == roomId && !(r.StartDate.Date > from && r.StartDate.Date >= to) ||
+                                              (r.EndDate.Date < to && r.EndDate.Date <= from));
+
+            return unavailable.Any();
         }
     }
 }

@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="DbSetUp.cs" />
+    <Compile Include="MongoDbFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookRoomRequests.cs" />
     <Compile Include="Repositories\RoomPrices.cs" />

@@ -23,8 +23,8 @@ namespace Inventory.Services
             rs.AddRange(rooms.Get(RoomType.Queen));
 
             var notBookedYet = rs.Where(r => r.IsAvailable(@from, to));
-            
-            var notRequestedYet = notBookedYet.Where(nb => requests.Exists(nb.Id, from,to));
+
+            var notRequestedYet = notBookedYet.Where(nb => !requests.Exists(nb.Id, from, to)).ToList();
 
             return notRequestedYet.Select(nb => nb.Type).Distinct().ToList();
         }

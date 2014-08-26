@@ -26,31 +26,11 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
             requests = new Mock<IBookRoomRequestsRepository>();
             rooms = new Mock<IRoomRepository>();
 
-            requests.Setup(r => r.Get())
-                    .Returns(new List<SubmittedBookRoomRequest>()
-                        {
-                            new SubmittedBookRoomRequest()
-                                {
-                                    RoomId = 2,StartDate = DateTime.Now.AddDays(2).Date,EndDate = DateTime.Now.AddDays(8).Date
-                                }
-                        });
+            requests.Setup(r => r.Exists(2, DateTime.Now.Date.AddDays(3), DateTime.Now.Date.AddDays(6).Date)).Returns(true);
 
-            rooms.Setup(r => r.Get(RoomType.Queen)).Returns(new List<Room>() {});
-
-            rooms.Setup(r => r.Get(RoomType.King))
-                 .Returns(new List<Room>()
+            rooms.Setup(r => r.Get(RoomType.Queen)).Returns(new List<Room>()
                      {
-                         new Room()
-                             {
-                                 Id = 1,
-                                 Type = RoomType.King,
-                                 BookedOn =
-                                     new List<BookedOnRange>()
-                                         {
-                                             new BookedOnRange(){CheckIn = DateTime.Now.AddDays(16),CheckOut = DateTime.Now.AddDays(17)}
-                                         }
-                             },
-                          new Room()
+                        new Room()
                              {
                                  Id = 2,
                                  Type = RoomType.Queen,
@@ -72,12 +52,27 @@ namespace Availability.Spec.GetHotelAvailability.OnDateRanges
                              }
                      });
 
+            rooms.Setup(r => r.Get(RoomType.King))
+                 .Returns(new List<Room>()
+                     {
+                         new Room()
+                             {
+                                 Id = 1,
+                                 Type = RoomType.King,
+                                 BookedOn =
+                                     new List<BookedOnRange>()
+                                         {
+                                             new BookedOnRange(){CheckIn = DateTime.Now.AddDays(16),CheckOut = DateTime.Now.AddDays(17)}
+                                         }
+                             }
+                     });
+
             inventoryService = new InventoryService(requests.Object, rooms.Object);
         }
 
         protected override void When()
         {
-            searchResult = inventoryService.AllRooms(DateTime.Now.AddDays(3), DateTime.Now.AddDays(6));
+            searchResult = inventoryService.AllRooms(DateTime.Now.Date.AddDays(3), DateTime.Now.Date.AddDays(6));
         }
 
         [Test]
