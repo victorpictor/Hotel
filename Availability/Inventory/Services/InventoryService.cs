@@ -22,20 +22,11 @@ namespace Inventory.Services
             var rs = rooms.Get(RoomType.King);
             rs.AddRange(rooms.Get(RoomType.Queen));
 
-            var notBookedYet = rs.Where(r => r.IsAvailable(from,to));
+            var notBookedYet = rs.Where(r => r.IsAvailable(@from, to));
+            
+            var notRequestedYet = notBookedYet.Where(nb => requests.Exists(nb.Id, from,to));
 
-            if (notBookedYet.Any())
-            {
-                var reqs = requests.Get();
-
-                notBookedYet = notBookedYet.Where(
-                    nb => reqs.All(
-                        r => r.RoomId != nb.Id &&
-                             r.StartDate.Date != from.Date &&
-                             r.EndDate.Date != to));
-            }
-
-            return notBookedYet.Select(nb => nb.Type).Distinct().ToList();
+            return notRequestedYet.Select(nb => nb.Type).Distinct().ToList();
         }
 
     }

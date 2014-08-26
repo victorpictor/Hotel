@@ -30,7 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\lib\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\lib\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,8 +49,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ConnectionString.cs" />
+    <Compile Include="RequestedRooms\WhenRequestExistsForTheRoomOnCollidingDates.cs" />
+    <Compile Include="RequestedRooms\WhenRequestExistsForTheRoomOnDifferentDates.cs" />
+    <Compile Include="RequestedRooms\WhenRequestExistsForTheRoomOnGivenDates.cs" />
+    <Compile Include="HasMongoSetUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specification.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Availability\Inventory\Inventory.csproj">
+      <Project>{F5B2594E-E6B1-496B-92D4-C3CFA3A225AF}</Project>
+      <Name>Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\InventoryDataAccess\InventoryDataAccess.csproj">
+      <Project>{EFFCFE7C-4328-46D4-A14A-5734552BAA20}</Project>
+      <Name>InventoryDataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
