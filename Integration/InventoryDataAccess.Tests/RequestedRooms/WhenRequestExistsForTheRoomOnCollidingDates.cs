@@ -13,16 +13,7 @@ namespace InventoryDataAccess.Tests.RequestedRooms
 
         private bool result;
 
-        public WhenRequestExistsForTheRoomOnCollidingDates()
-            : this("WhenRequestExistsForTheRoomOnCollidingDates")
-        {
-        }
-
-        public WhenRequestExistsForTheRoomOnCollidingDates(string dbName) : base(dbName)
-        {}
-
-        
-        public void Given()
+        public override void Given()
         {
             var requests = database.GetCollection("BookRoomRequests");
             requests.Save(new SubmittedBookRoomRequest(){RoomId = roomId, StartDate = DateTime.Now.AddDays(-3), EndDate = DateTime.Now.AddDays(2)});
@@ -30,8 +21,8 @@ namespace InventoryDataAccess.Tests.RequestedRooms
             bookRoomRequests = new BookRoomRequests();
         }
 
-       
-        public void When()
+
+        public override void When()
         {
             result = bookRoomRequests.Exists(roomId, DateTime.Now.AddDays(-5), DateTime.Now);
         }

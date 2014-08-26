@@ -20,8 +20,8 @@ namespace InventoryDataAccess.Repositories
 
             var requests = db.GetCollection<SubmittedBookRoomRequest>("SubmittedBookRoomRequests");
 
-            var unavailable = requests.AsQueryable().Where(r => r.Id == roomId && !(r.StartDate.Date > from && r.StartDate.Date >= to) ||
-                                              (r.EndDate.Date < to && r.EndDate.Date <= from));
+            var unavailable = requests.AsQueryable().Where(r => r.Id == roomId && !(r.StartDate > from && r.StartDate >= to) ||
+                                              (r.EndDate < to && r.EndDate <= from)).ToList();
 
             return unavailable.Any();
         }

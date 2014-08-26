@@ -1,21 +1,25 @@
-﻿using MongoDB.Driver;
+﻿using System;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Options;
+using MongoDB.Driver;
 
 namespace InventoryDataAccess.Tests
 {
-    public class HasMongoSetUp
+    public class HasMongoSetUp: Specification
     {
-        private string dbName;
+        static HasMongoSetUp()
+        {
+            DateTimeSerializationOptions.Defaults = new DateTimeSerializationOptions(DateTimeKind.Local, BsonType.Document);
+        }
 
         protected MongoDatabase database;
 
-        public HasMongoSetUp(string dbName)
+        public HasMongoSetUp()
         {
-            this.dbName = dbName;
-
             var client = new MongoClient(new ConnectionString().MongoUrl);
             var server = client.GetServer();
 
-            database = server.GetDatabase(dbName); 
+            database = server.GetDatabase(new Configuration().MongoDbName); 
         }
 
         ~HasMongoSetUp()

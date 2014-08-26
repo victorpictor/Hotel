@@ -13,11 +13,11 @@ namespace InventoryDataAccess.Tests
             When();
         }
 
-        protected virtual void Given()
+        public virtual void Given()
         {
         }
 
-        protected virtual void When()
+        public virtual void When()
         {
         }
 
