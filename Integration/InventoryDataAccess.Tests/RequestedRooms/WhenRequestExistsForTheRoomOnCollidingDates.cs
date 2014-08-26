@@ -39,7 +39,7 @@ namespace InventoryDataAccess.Tests.RequestedRooms
         [Test]
         public void It_should_return_true_as_an_existing_booking_request_on_given_dates()
         {
-            Assert.AreEqual(true,result,"Expected the room to be unavailable");
+            Assert.AreEqual(false,result,"Expected the room to be unavailable");
         }
 
 

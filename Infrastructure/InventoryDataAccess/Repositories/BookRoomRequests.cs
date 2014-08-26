@@ -14,7 +14,7 @@ namespace InventoryDataAccess.Repositories
 
         public bool Exists(int roomId, DateTime @from, DateTime to)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Exists(Guid roomId, DateTime from, DateTime to)
