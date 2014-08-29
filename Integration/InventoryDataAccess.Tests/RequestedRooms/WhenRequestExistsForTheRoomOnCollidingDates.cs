@@ -16,8 +16,8 @@ namespace InventoryDataAccess.Tests.RequestedRooms
         public override void Given()
         {
             var requests = database.GetCollection("BookRoomRequests");
-            requests.Save(new SubmittedBookRoomRequest(){RoomId = roomId, StartDate = DateTime.Now.AddDays(-3), EndDate = DateTime.Now.AddDays(2)});
-        
+            requests.Save(new SubmittedBookRoomRequest(){RoomId = roomId, StartDate = DateTime.Now.AddDays(-3).Date, EndDate = DateTime.Now.AddDays(2).Date});
+
             bookRoomRequests = new BookRoomRequests();
         }
 
@@ -30,9 +30,7 @@ namespace InventoryDataAccess.Tests.RequestedRooms
         [Test]
         public void It_should_return_true_as_an_existing_booking_request_on_given_dates()
         {
-            Assert.AreEqual(false,result,"Expected the room to be unavailable");
+            Assert.AreEqual(true,result,"Expected the room to be unavailable");
         }
-
-
     }
 }

@@ -16,6 +16,8 @@ namespace InventoryDataAccess.Tests
 
         public HasMongoSetUp()
         {
+
+
             var client = new MongoClient(new ConnectionString().MongoUrl);
             var server = client.GetServer();
 

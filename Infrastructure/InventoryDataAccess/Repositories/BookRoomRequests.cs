@@ -18,12 +18,16 @@ namespace InventoryDataAccess.Repositories
         {
             var db = new MongoDbFactory().CreateDb(new Configuration().MongoDbName);
 
-            var requests = db.GetCollection<SubmittedBookRoomRequest>("SubmittedBookRoomRequests");
+            var requests = db.GetCollection<SubmittedBookRoomRequest>("BookRoomRequests");
 
-            var unavailable = requests.AsQueryable().Where(r => r.Id == roomId && !(r.StartDate > from && r.StartDate >= to) ||
-                                              (r.EndDate < to && r.EndDate <= from)).ToList();
+            var unavailable =
+                requests.AsQueryable()
+                        .Where(r => r.RoomId == roomId)
+                        .ToList()
+                        .All(r => !((r.StartDate > from && r.StartDate >= to) || (r.EndDate < to && r.EndDate <= from)));
+            
 
-            return unavailable.Any();
+            return unavailable;
         }
     }
 }
