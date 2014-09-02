@@ -5,8 +5,7 @@ namespace Inventory.HotelRoom
     public class RoomPrice
     {
         public RoomPrice()
-        {
-        }
+        {}
 
         public RoomPrice(RoomType roomType, DateTime startDate, DateTime endtDate, double perNight)
         {

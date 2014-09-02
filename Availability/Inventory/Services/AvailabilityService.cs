@@ -8,11 +8,13 @@ namespace Inventory.Services
     {
         private IInventoryService inventoryService;
         private IRoomPriceService roomPriceService;
+        private IAvailabilitySessionService availabilitySessionService;
 
-        public AvailabilityService(IInventoryService inventoryService, IRoomPriceService roomPriceService)
+        public AvailabilityService(IInventoryService inventoryService, IRoomPriceService roomPriceService, IAvailabilitySessionService availabilitySessionService)
         {
             this.inventoryService = inventoryService;
             this.roomPriceService = roomPriceService;
+            this.availabilitySessionService = availabilitySessionService;
         }
 
         public AvailableRooms Get(DateTime from, DateTime to)
@@ -21,7 +23,11 @@ namespace Inventory.Services
 
             var offer = availableRoomTypes.Select(art => roomPriceService.Calculate(art, from, to));
 
-            return new AvailableRooms(){RoomPrices = offer.ToList()};
+            var availableRooms = new AvailableRooms(){RoomPrices = offer.ToList()};
+
+            availabilitySessionService.Store(availableRooms);
+
+            return availableRooms;
         }
     }
 }

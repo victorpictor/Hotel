@@ -51,10 +51,12 @@
     <Compile Include="Services\Exceptions\CouldNotBePricedDateRange.cs" />
     <Compile Include="Services\Exceptions\InvalidDateRange.cs" />
     <Compile Include="Services\InventoryService.cs" />
+    <Compile Include="Services\Repositories\ISessionRepository.cs" />
     <Compile Include="Services\RoomPriceService.cs" />
     <Compile Include="Services\Repositories\IBookRoomRequestsRepository.cs" />
     <Compile Include="Services\Repositories\IRoomPriceRepository.cs" />
     <Compile Include="Services\Repositories\IRoomRepository.cs" />
+    <Compile Include="Services\SessionService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

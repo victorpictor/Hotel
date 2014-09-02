@@ -28,7 +28,7 @@ namespace Inventory.Services
             var rprices = roomPrices.Get(roomType, from, to);
 
             if (!rprices.Any())
-                throw new CouldNotBePricedDateRange(string.Format("Invalid date rage for pricing [{0} {1}]", from, to));
+                throw new CouldNotBePricedDateRange(string.Format("Date range could not be priced [{0} {1}]", from, to));
 
             return new RoomPrice(roomType, from, to, rprices.Average(p => p.PerNight));
             
