@@ -48,6 +48,8 @@
     <Compile Include="HotelRoom\RoomPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AvailabilityService.cs" />
+    <Compile Include="Services\Exceptions\CouldNotBePricedDateRange.cs" />
+    <Compile Include="Services\Exceptions\InvalidDateRange.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\RoomPriceService.cs" />
     <Compile Include="Services\Repositories\IBookRoomRequestsRepository.cs" />
