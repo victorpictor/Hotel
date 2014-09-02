@@ -6,7 +6,12 @@ using Inventory.Services.Repositories;
 
 namespace Inventory.Services
 {
-    public class InventoryService
+    public interface IInventoryService
+    {
+        List<RoomType> AllRooms(DateTime from, DateTime to);
+    }
+
+    public class InventoryService : IInventoryService
     {
         private IBookRoomRequestsRepository requests;
         private IRoomRepository rooms;

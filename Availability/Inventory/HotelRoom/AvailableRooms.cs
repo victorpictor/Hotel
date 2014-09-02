@@ -7,6 +7,12 @@ namespace Inventory.HotelRoom
     {
         public Guid Id = Guid.NewGuid();
 
-        public List<RoomPrice> RoomPrices;
+        public List<RoomPrice> RoomPrices = new List<RoomPrice>();
+
+        public int AvailableRoomsCount()
+        {
+            return RoomPrices.Count;
+        }
+
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="GetHotelAvailability\PriceOnDateRanges\WhenIWantToBePricedRoomAndDateRangeIsInvalid.cs" />
     <Compile Include="GetHotelAvailability\PriceOnDateRanges\WhenIWantToBePricedRoomAndNoPricesAreDefined.cs" />
     <Compile Include="GetHotelAvailability\PriceOnDateRanges\WhenIWantToBePricedRoomAndPricesAreDefined.cs" />
+    <Compile Include="GetHotelAvailability\WhenISpecifyDateRange.cs" />
     <Compile Include="RoomAvailableDefinition\TheHotelRoom\IsAvailableWhenItsNotBookedNotConflictingGivenDates.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

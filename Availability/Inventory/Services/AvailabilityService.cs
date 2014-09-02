@@ -6,10 +6,10 @@ namespace Inventory.Services
 {
     public class AvailabilityService
     {
-        private InventoryService inventoryService;
-        private RoomPriceService roomPriceService;
+        private IInventoryService inventoryService;
+        private IRoomPriceService roomPriceService;
 
-        public AvailabilityService(InventoryService inventoryService, RoomPriceService roomPriceService)
+        public AvailabilityService(IInventoryService inventoryService, IRoomPriceService roomPriceService)
         {
             this.inventoryService = inventoryService;
             this.roomPriceService = roomPriceService;

@@ -6,7 +6,12 @@ using Inventory.Services.Repositories;
 
 namespace Inventory.Services
 {
-    public class RoomPriceService
+    public interface IRoomPriceService
+    {
+        RoomPrice Calculate(RoomType roomType, DateTime from, DateTime to);
+    }
+
+    public class RoomPriceService : IRoomPriceService
     {
         private IRoomPriceRepository roomPrices;
 
