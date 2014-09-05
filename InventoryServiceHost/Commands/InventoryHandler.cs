@@ -9,7 +9,15 @@ namespace InventoryServiceHost.Commands
 
         public void Handle(AplyHoldOnRoomAvailability c)
         {
-            bookRoomRequests.Add(new SubmittedBookRoomRequest());
+            //Get a room by type assign to request
+            //Add verification if the room is still available
+            bookRoomRequests.Add(new SubmittedBookRoomRequest()
+                {
+                    Id = c.Id,
+                    RoomType = c.RoomType,
+                    StartDate = c.StartDate,
+                    EndDate = c.EndDate,
+                });
         }
 
         public void Handle(MarkRoomBooked c)

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.TheRoom;
 using Inventory.HotelRoom;
 using Inventory.Services;
 using Inventory.Services.Repositories;
 using Moq;
 using NUnit.Framework;
+using Room = Inventory.HotelRoom.Room;
 
 namespace Availability.Spec.GetHotelAvailability.InventoryOnDateRanges
 {

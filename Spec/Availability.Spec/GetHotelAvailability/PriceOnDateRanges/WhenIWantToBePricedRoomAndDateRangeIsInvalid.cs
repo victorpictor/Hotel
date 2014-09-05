@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.TheRoom;
 using Inventory.HotelRoom;
 using Inventory.Services;
 using Inventory.Services.Exceptions;

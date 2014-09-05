@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.TheRoom;
 using Inventory.HotelRoom;
 using Inventory.Services;
 using Inventory.Services.Repositories;
 using Moq;
 using NUnit.Framework;
+using Room = Inventory.HotelRoom.Room;
 
 namespace Availability.Spec.GetHotelAvailability.InventoryOnDateRanges
 {
@@ -66,7 +68,7 @@ namespace Availability.Spec.GetHotelAvailability.InventoryOnDateRanges
         [Test]
         public void It_should_not_check_for_applied_hold()
         {
-            requests.Verify(r => r.Get(), Times.Never());
+            requests.Verify(r => r.Exists(It.IsAny<int>(),It.IsAny<DateTime>(), It.IsAny<DateTime>()), Times.Never());
         }
         
     }

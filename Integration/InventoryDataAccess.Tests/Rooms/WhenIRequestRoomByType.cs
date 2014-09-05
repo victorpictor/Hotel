@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core.TheRoom;
 using Inventory.HotelRoom;
 using NUnit.Framework;
+using Room = Inventory.HotelRoom.Room;
 
 namespace InventoryDataAccess.Tests.Rooms
 {

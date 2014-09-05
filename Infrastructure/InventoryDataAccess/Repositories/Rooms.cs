@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Inventory.HotelRoom;
+using Core.TheRoom;
 using Inventory.Services.Repositories;
 using MongoDB.Driver.Linq;
+using Room = Inventory.HotelRoom.Room;
 
 namespace InventoryDataAccess.Repositories
 {

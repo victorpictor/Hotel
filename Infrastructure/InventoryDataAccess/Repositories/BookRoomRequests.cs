@@ -9,12 +9,7 @@ namespace InventoryDataAccess.Repositories
 {
     public class BookRoomRequests : IBookRoomRequestsRepository
     {
-        public List<SubmittedBookRoomRequest> Get()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool Exists(int roomId, DateTime @from, DateTime to)
+       public bool Exists(int roomId, DateTime @from, DateTime to)
         {
             var db = new MongoDbFactory().CreateDb(new Configuration().MongoDbName);
 
