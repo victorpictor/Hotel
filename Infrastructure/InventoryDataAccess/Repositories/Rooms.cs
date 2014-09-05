@@ -17,5 +17,10 @@ namespace InventoryDataAccess.Repositories
 
             return rooms.AsQueryable().Where(r => r.Type == type).ToList();
         }
+
+        public Room Get(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

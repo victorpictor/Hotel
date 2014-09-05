@@ -24,5 +24,10 @@ namespace InventoryDataAccess.Repositories
 
             return unavailable;
         }
+
+        public SubmittedBookRoomRequest Get(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

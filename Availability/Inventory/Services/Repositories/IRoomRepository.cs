@@ -7,5 +7,6 @@ namespace Inventory.Services.Repositories
     public interface IRoomRepository
     {
         List<Room> Get(RoomType type);
+        Room Get(int id);
     }
 }

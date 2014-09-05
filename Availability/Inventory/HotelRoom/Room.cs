@@ -19,5 +19,10 @@ namespace Inventory.HotelRoom
                 b => (b.CheckIn.Date > from && b.CheckIn.Date >= to) ||
                      (b.CheckOut.Date < to && b.CheckOut.Date <= from));
         }
+
+        public void BookOnDates(DateTime from, DateTime to)
+        {
+            BookedOn.Add(new BookedOnRange(){CheckIn = from, CheckOut = to});
+        }
     }
 }
