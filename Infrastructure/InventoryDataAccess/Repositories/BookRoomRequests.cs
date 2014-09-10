@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Inventory.Holds;
+using Inventory.HotelRoom;
 using Inventory.Services.Repositories;
 using MongoDB.Driver.Linq;
 

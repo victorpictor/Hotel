@@ -1,5 +1,5 @@
 ﻿using System;
-using Inventory.Holds;
+using Inventory.HotelRoom;
 using InventoryDataAccess.Repositories;
 using NUnit.Framework;
 

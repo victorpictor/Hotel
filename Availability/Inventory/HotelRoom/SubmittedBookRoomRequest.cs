@@ -1,7 +1,7 @@
 ﻿using System;
 using Core.TheRoom;
 
-namespace Inventory.Holds
+namespace Inventory.HotelRoom
 {
     public class SubmittedBookRoomRequest
     {

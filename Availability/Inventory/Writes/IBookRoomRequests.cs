@@ -1,4 +1,6 @@
-﻿namespace Inventory.Holds
+﻿using Inventory.HotelRoom;
+
+namespace Inventory.Writes
 {
     public interface IBookRoomRequests
     {

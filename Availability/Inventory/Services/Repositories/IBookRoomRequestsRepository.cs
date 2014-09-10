@@ -1,5 +1,5 @@
 ﻿using System;
-using Inventory.Holds;
+using Inventory.HotelRoom;
 
 namespace Inventory.Services.Repositories
 {

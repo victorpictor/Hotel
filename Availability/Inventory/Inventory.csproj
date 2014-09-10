@@ -39,14 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Holds\IBookRoomRequests.cs" />
-    <Compile Include="Holds\SubmittedBookRoomRequest.cs" />
+    <Compile Include="Services\Exceptions\NotFoundRoom.cs" />
+    <Compile Include="Writes\IBookRoomRequests.cs" />
+    <Compile Include="HotelRoom\SubmittedBookRoomRequest.cs" />
     <Compile Include="HotelRoom\AvailableRooms.cs" />
     <Compile Include="HotelRoom\BookedOnRange.cs" />
     <Compile Include="HotelRoom\Room.cs" />
     <Compile Include="HotelRoom\RoomPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AvailabilityService.cs" />
+    <Compile Include="Services\BookingService.cs" />
     <Compile Include="Services\Exceptions\CouldNotBePricedDateRange.cs" />
     <Compile Include="Services\Exceptions\InvalidDateRange.cs" />
     <Compile Include="Services\InventoryService.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Services\Repositories\IRoomPriceRepository.cs" />
     <Compile Include="Services\Repositories\IRoomRepository.cs" />
     <Compile Include="Services\SessionService.cs" />
+    <Compile Include="Writes\IRoomBookings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Core\Core.csproj">

@@ -1,5 +1,6 @@
-﻿using Inventory.Holds;
+﻿using Inventory.HotelRoom;
 using Inventory.Services.Repositories;
+using Inventory.Writes;
 using Messages.Availability;
 
 namespace InventoryServiceHost.Commands
@@ -8,12 +9,19 @@ namespace InventoryServiceHost.Commands
     {
         private IBookRoomRequests bookRoomRequests;
         private IBookRoomRequestsRepository bookRoomRequestsCollection;
-        private IRoomRepository roomsCollection;
+        private IRoomBookings roomBookings;
+
+        public InventoryHandler(IBookRoomRequests bookRoomRequests,
+                                IBookRoomRequestsRepository bookRoomRequestsCollection, 
+                                IRoomBookings roomBookings)
+        {
+            this.bookRoomRequests = bookRoomRequests;
+            this.bookRoomRequestsCollection = bookRoomRequestsCollection;
+            this.roomBookings = roomBookings;
+        }
 
         public void Handle(AplyHoldOnRoomAvailability c)
         {
-            //Get a room by type assigned to request
-            //Add verification if the room is still available
             bookRoomRequests.Add(new SubmittedBookRoomRequest()
                 {
                     Id = c.Id,
@@ -25,14 +33,9 @@ namespace InventoryServiceHost.Commands
 
         public void Handle(MarkRoomBooked c)
         {
-            //Get BookRoomRequest by correlation id
             var r = bookRoomRequestsCollection.Get(c.Id);
-            //Get room and book it on given dates
-            var theRoom = roomsCollection.Get(r.RoomId);
-            theRoom.BookOnDates(r.StartDate,r.EndDate);
             
-            //store changes
-
+            roomBookings.Add(r.RoomId, r.StartDate,r.EndDate);
         }
     }
 }

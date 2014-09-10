@@ -53,6 +53,7 @@
     <Compile Include="MongoDbFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookRoomRequests.cs" />
+    <Compile Include="Repositories\RoomBookings.cs" />
     <Compile Include="Repositories\RoomPrices.cs" />
     <Compile Include="Repositories\Rooms.cs" />
   </ItemGroup>

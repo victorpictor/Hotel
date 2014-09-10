@@ -55,6 +55,7 @@
     <Compile Include="RequestedRooms\WhenRequestExistsForTheRoomOnGivenDates.cs" />
     <Compile Include="HasMongoSetUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rooms\WhenIAddARoomBooking.cs" />
     <Compile Include="Rooms\WhenIRequestRoomByType.cs" />
     <Compile Include="Specification.cs" />
   </ItemGroup>
