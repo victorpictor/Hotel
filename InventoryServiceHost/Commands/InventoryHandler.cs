@@ -3,7 +3,7 @@ using Inventory.Services.Repositories;
 using Inventory.Writes;
 using Messages.Availability;
 
-namespace InventoryServiceHost.Commands
+namespace InventoryService.Commands
 {
     public class InventoryHandler
     {

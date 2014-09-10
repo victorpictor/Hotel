@@ -42,6 +42,9 @@
     <Compile Include="Availability\AplyHoldOnRoomAvailability.cs" />
     <Compile Include="Availability\AppliedHoldOnRoom.cs" />
     <Compile Include="Availability\MarkRoomBooked.cs" />
+    <Compile Include="BookingProcess\CardCharged.cs" />
+    <Compile Include="BookingProcess\NewReservation.cs" />
+    <Compile Include="BookingProcess\RoomPriced.cs" />
     <Compile Include="Markers\ICommand.cs" />
     <Compile Include="Markers\IEvent.cs" />
     <Compile Include="Markers\IMessage.cs" />

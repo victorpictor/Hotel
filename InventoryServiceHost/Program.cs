@@ -1,4 +1,4 @@
-﻿namespace InventoryServiceHost
+﻿namespace InventoryService
 {
     class Program
     {

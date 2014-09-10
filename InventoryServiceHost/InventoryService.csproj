@@ -7,8 +7,8 @@
     <ProjectGuid>{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InventoryServiceHost</RootNamespace>
-    <AssemblyName>InventoryServiceHost</AssemblyName>
+    <RootNamespace>InventoryService</RootNamespace>
+    <AssemblyName>InventoryService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,9 +45,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Events\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Availability\Inventory\Inventory.csproj">
       <Project>{f5b2594e-e6b1-496b-92d4-c3cfa3a225af}</Project>

@@ -19,13 +19,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spec", "Spec", "{4BBCCC7A-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Availability.Spec", "Spec\Availability.Spec\Availability.Spec.csproj", "{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryServiceHost", "InventoryServiceHost\InventoryServiceHost.csproj", "{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "InventoryServiceHost\InventoryService.csproj", "{B0E7D8FD-5DB3-40ED-9CCE-A88FA17CFEDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryDataAccess", "Infrastructure\InventoryDataAccess\InventoryDataAccess.csproj", "{EFFCFE7C-4328-46D4-A14A-5734552BAA20}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{97C2AA8C-1D3C-41EB-953E-AAE752CC4B5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryDataAccess.Tests", "Integration\InventoryDataAccess.Tests\InventoryDataAccess.Tests.csproj", "{EFB477C6-43FD-486A-B7B5-2EBE37E09248}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessManagement", "BookingServices\ProcessManagement\ProcessManagement.csproj", "{58BC01EF-8780-4F47-A492-948E20B534D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{EFB477C6-43FD-486A-B7B5-2EBE37E09248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFB477C6-43FD-486A-B7B5-2EBE37E09248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFB477C6-43FD-486A-B7B5-2EBE37E09248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58BC01EF-8780-4F47-A492-948E20B534D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BC01EF-8780-4F47-A492-948E20B534D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BC01EF-8780-4F47-A492-948E20B534D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BC01EF-8780-4F47-A492-948E20B534D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{C3A8D3DF-A7ED-4187-A74E-1B02A5E95BD2} = {EA91127A-19D7-4E72-94EB-136F76642647}
 		{9FC0D899-C031-4D92-8BAD-C22001AA4851} = {EA91127A-19D7-4E72-94EB-136F76642647}
 		{EFFCFE7C-4328-46D4-A14A-5734552BAA20} = {B91E83D7-87D9-4E3C-BB71-C331114BF637}
+		{58BC01EF-8780-4F47-A492-948E20B534D2} = {E933B257-8B6F-404E-BCCA-111B53EC4A26}
 		{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96} = {4BBCCC7A-FDE7-4858-B29E-64EFE941B017}
 		{EFB477C6-43FD-486A-B7B5-2EBE37E09248} = {97C2AA8C-1D3C-41EB-953E-AAE752CC4B5E}
 	EndGlobalSection
