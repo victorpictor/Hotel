@@ -43,9 +43,15 @@
     <Compile Include="Processes\CancelationProcess.cs" />
     <Compile Include="Processes\NewBookingProcess.cs" />
     <Compile Include="Processes\RefundProcess.cs" />
+    <Compile Include="Processes\State\IHave.cs" />
+    <Compile Include="Processes\State\NewBookingProcessState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Core\Core.csproj">
+      <Project>{9FC0D899-C031-4D92-8BAD-C22001AA4851}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\Messages\Messages.csproj">
       <Project>{C3A8D3DF-A7ED-4187-A74E-1B02A5E95BD2}</Project>
       <Name>Messages</Name>

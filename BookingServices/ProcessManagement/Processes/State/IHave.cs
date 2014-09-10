@@ -1,6 +1,6 @@
 ﻿namespace ProcessManagement.Processes.State
 {
-    public interface IHave<T>
+    public class IHave<T>
     {
         T State { get; set; }
     }
