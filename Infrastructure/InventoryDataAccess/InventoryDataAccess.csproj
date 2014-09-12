@@ -62,7 +62,7 @@
       <Project>{f5b2594e-e6b1-496b-92d4-c3cfa3a225af}</Project>
       <Name>Inventory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Domain\Messages\Core.csproj">
+    <ProjectReference Include="..\..\Domain\Core\Core.csproj">
       <Project>{c3a8d3df-a7ed-4187-a74e-1b02a5e95bd2}</Project>
       <Name>Core</Name>
     </ProjectReference>
