@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Core.TheRoom;
+using Core.Booking.TheRoom;
 using Inventory.Services.Repositories;
 using MongoDB.Driver.Linq;
 using Room = Inventory.HotelRoom.Room;

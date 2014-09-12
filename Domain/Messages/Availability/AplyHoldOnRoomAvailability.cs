@@ -1,6 +1,6 @@
 ﻿using System;
-using Core.TheRoom;
-using Messages.Markers;
+using Core.Booking.TheRoom;
+using Core.Markers;
 
 namespace Messages.Availability
 {

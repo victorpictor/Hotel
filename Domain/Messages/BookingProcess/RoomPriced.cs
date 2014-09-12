@@ -1,7 +1,7 @@
 ﻿using System;
-using Messages.Markers;
+using Core.Markers;
 
-namespace Messages.BookingProcess
+namespace Core.BookingProcess
 {
     public class RoomPriced:IEvent
     {

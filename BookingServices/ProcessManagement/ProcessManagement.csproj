@@ -48,13 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\Core\Core.csproj">
-      <Project>{9FC0D899-C031-4D92-8BAD-C22001AA4851}</Project>
+    <ProjectReference Include="..\..\Domain\Messages\Core.csproj">
+      <Project>{c3a8d3df-a7ed-4187-a74e-1b02a5e95bd2}</Project>
       <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Domain\Messages\Messages.csproj">
-      <Project>{C3A8D3DF-A7ED-4187-A74E-1B02A5E95BD2}</Project>
-      <Name>Messages</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

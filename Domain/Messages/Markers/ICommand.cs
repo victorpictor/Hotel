@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Messages.Markers
+namespace Core.Markers
 {
     public interface ICommand
     {

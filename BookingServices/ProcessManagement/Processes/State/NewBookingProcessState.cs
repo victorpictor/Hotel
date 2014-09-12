@@ -1,6 +1,6 @@
 ﻿using System;
-using Core.Payment;
-using Core.TheRoom;
+using Core.Booking.Payment;
+using Core.Booking.TheRoom;
 
 namespace ProcessManagement.Processes.State
 {

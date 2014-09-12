@@ -1,9 +1,9 @@
 ﻿using System;
-using Core.Payment;
-using Core.TheRoom;
-using Messages.Markers;
+using Core.Booking.Payment;
+using Core.Booking.TheRoom;
+using Core.Markers;
 
-namespace Messages.BookingProcess
+namespace Core.BookingProcess
 {
     public class NewReservation:IMessage
     {

@@ -1,4 +1,4 @@
-﻿namespace Core.TheRoom
+﻿namespace Core.Booking.TheRoom
 {
     public enum RoomType
     {

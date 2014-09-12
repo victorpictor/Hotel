@@ -1,4 +1,4 @@
-﻿using Messages.BookingProcess;
+﻿using Core.BookingProcess;
 using ProcessManagement.Processes.State;
 
 namespace ProcessManagement.Processes

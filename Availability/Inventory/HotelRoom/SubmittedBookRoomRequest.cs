@@ -1,5 +1,5 @@
 ﻿using System;
-using Core.TheRoom;
+using Core.Booking.TheRoom;
 
 namespace Inventory.HotelRoom
 {

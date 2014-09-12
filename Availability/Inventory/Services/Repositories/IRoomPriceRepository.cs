@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.TheRoom;
+using Core.Booking.TheRoom;
 using Inventory.HotelRoom;
 
 namespace Inventory.Services.Repositories

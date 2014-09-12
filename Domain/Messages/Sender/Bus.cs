@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Messages.Markers;
+using Core.Markers;
 
-namespace Messages.Sender
+namespace Core.Sender
 {
     public class Bus
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Messages.Markers;
+using Core.Markers;
 
-namespace Messages.Availability
+namespace Core.Availability
 {
     public class MarkRoomBooked:ICommand
     {

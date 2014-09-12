@@ -1,4 +1,5 @@
-﻿using Inventory.HotelRoom;
+﻿using Core.Availability;
+using Inventory.HotelRoom;
 using Inventory.Services.Repositories;
 using Inventory.Writes;
 using Messages.Availability;

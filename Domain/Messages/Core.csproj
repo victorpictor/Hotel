@@ -7,8 +7,8 @@
     <ProjectGuid>{C3A8D3DF-A7ED-4187-A74E-1B02A5E95BD2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Messages</RootNamespace>
-    <AssemblyName>Messages</AssemblyName>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,6 +45,10 @@
     <Compile Include="BookingProcess\CardCharged.cs" />
     <Compile Include="BookingProcess\NewReservation.cs" />
     <Compile Include="BookingProcess\RoomPriced.cs" />
+    <Compile Include="Booking\Payment\PaymentAmount.cs" />
+    <Compile Include="Booking\Payment\PaymentInfo.cs" />
+    <Compile Include="Booking\Payment\PaymentStatus.cs" />
+    <Compile Include="Booking\TheRoom\RoomType.cs" />
     <Compile Include="Markers\ICommand.cs" />
     <Compile Include="Markers\IEvent.cs" />
     <Compile Include="Markers\IMessage.cs" />
@@ -52,12 +56,6 @@
     <Compile Include="Sender\Bus.cs" />
     <Compile Include="Sender\ICommandSerder.cs" />
     <Compile Include="Sender\IEventPublisher.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{9FC0D899-C031-4D92-8BAD-C22001AA4851}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

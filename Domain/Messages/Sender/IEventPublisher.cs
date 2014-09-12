@@ -1,6 +1,6 @@
-﻿using Messages.Markers;
+﻿using Core.Markers;
 
-namespace Messages.Sender
+namespace Core.Sender
 {
     public interface IEventPublisher
     {

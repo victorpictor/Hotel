@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Core.TheRoom;
+using Core.Booking.TheRoom;
 using Inventory.HotelRoom;
 using Inventory.Services.Exceptions;
 using Inventory.Services.Repositories;

@@ -1,4 +1,4 @@
-﻿namespace Core.Payment
+﻿namespace Core.Booking.Payment
 {
     public class PaymentAmount
     {

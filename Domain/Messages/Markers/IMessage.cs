@@ -1,4 +1,4 @@
-﻿namespace Messages.Markers
+﻿namespace Core.Markers
 {
     public interface IMessage
     {

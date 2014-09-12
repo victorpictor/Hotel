@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Payment
+namespace Core.Booking.Payment
 {
     public class PaymentInfo
     {
