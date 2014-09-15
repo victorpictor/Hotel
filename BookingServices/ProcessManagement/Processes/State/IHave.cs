@@ -1,7 +1,13 @@
-﻿namespace ProcessManagement.Processes.State
+﻿using System;
+using Core.Markers;
+
+namespace ProcessManagement.Processes.State
 {
-    public class IHave<T>
+    public abstract class IHave<T>
     {
         T State { get; set; }
+
+        protected abstract void Receive(Action<IEvent> action, IEvent ev);
+
     }
 }

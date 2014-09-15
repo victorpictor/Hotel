@@ -56,6 +56,7 @@
     <Compile Include="Sender\Bus.cs" />
     <Compile Include="Sender\ICommandSerder.cs" />
     <Compile Include="Sender\IEventPublisher.cs" />
+    <Compile Include="Store\IEventStore.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

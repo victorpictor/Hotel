@@ -1,4 +1,6 @@
-﻿using Core.BookingProcess;
+﻿using System;
+using Core.BookingProcess;
+using Core.Store;
 using ProcessManagement.Processes.State;
 
 namespace ProcessManagement.Processes
@@ -10,28 +12,52 @@ namespace ProcessManagement.Processes
         IReceiveMessage<CardCharged>
     {
 
-        public NewBookingProcess()
+        protected NewBookingProcessState State { get; set; }
+
+
+        private IEventStore store;
+
+        public NewBookingProcess(IEventStore eventStore)
         {
-            //load it from event source
-            this.State = new NewBookingProcessState();
+            this.store = eventStore;
         }
 
-        
-        protected NewBookingProcessState State { get; set; }
+        protected override void Receive(Action<NewBookingProcessState> action)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadProcessstate(Guid processId)
+        {
+            var history = store.LoadStream(processId);
+            this.State = new NewBookingProcessState(history);
+        }
 
         public void Receive(NewReservation message)
         {
-            throw new System.NotImplementedException();
+            Receive(x =>
+                {
+                    LoadProcessstate(message.Id);
+                    State.When(message);
+                });
         }
 
         public void Receive(RoomPriced message)
         {
-            throw new System.NotImplementedException();
+            Receive(x =>
+                {
+                    LoadProcessstate(message.Id);
+                    State.When(message);
+                });
         }
 
         public void Receive(CardCharged message)
         {
-            throw new System.NotImplementedException();
+            Receive(x =>
+                {
+                    LoadProcessstate(message.Id);
+                    State.When(message);
+                });
         }
     }
 }
