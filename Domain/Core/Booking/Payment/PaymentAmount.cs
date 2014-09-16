@@ -1,7 +1,10 @@
-﻿namespace Core.Booking.Payment
+﻿using System;
+
+namespace Core.Booking.Payment
 {
     public class PaymentAmount
     {
-        public double Amount = 0.0;
+        public Guid Id;
+        public double Amount;
     }
 }

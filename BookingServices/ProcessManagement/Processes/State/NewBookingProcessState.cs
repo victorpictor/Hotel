@@ -22,18 +22,29 @@ namespace ProcessManagement.Processes.State
 
         public NewBookingProcessState(List<IEvent> events)
         {
+            events.ForEach(e => When((dynamic)e));
         }
 
         public void When(NewReservation ev)
         {
+            Id = ev.Id;
+            PaymentInfo = ev.PaymentInfo;
+            PaymentStatus = PaymentStatus.Pending;
+
+            RoomType = ev.RoomType;
+
+            CheckIn = ev.CheckIn;
+            CheckOut = ev.CheckOut;
         }
 
         public void When(RoomPriced ev)
         {
+            PaymentAmount = ev.PaymentAmount;
         }
 
         public void When(CardCharged ev)
         {
+            PaymentStatus = PaymentStatus.Received;
         }
         
     }

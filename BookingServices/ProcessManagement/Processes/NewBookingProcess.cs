@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.BookingProcess;
+using Core.Markers;
 using Core.Store;
 using ProcessManagement.Processes.State;
 
@@ -14,7 +15,6 @@ namespace ProcessManagement.Processes
 
         protected NewBookingProcessState State { get; set; }
 
-
         private IEventStore store;
 
         public NewBookingProcess(IEventStore eventStore)
@@ -22,9 +22,13 @@ namespace ProcessManagement.Processes
             this.store = eventStore;
         }
 
-        protected override void Receive(Action<NewBookingProcessState> action)
+        protected override void Receive(Action<IEvent> action, IEvent @event)
         {
-            throw new NotImplementedException();
+            LoadProcessstate(@event.Id);
+            
+            action(@event);
+
+            store.AppendToStream(@event.Id,@event);
         }
 
         private void LoadProcessstate(Guid processId)
@@ -35,29 +39,18 @@ namespace ProcessManagement.Processes
 
         public void Receive(NewReservation message)
         {
-            Receive(x =>
-                {
-                    LoadProcessstate(message.Id);
-                    State.When(message);
-                });
+            Receive(e => State.When((dynamic) e), message);
         }
+
 
         public void Receive(RoomPriced message)
         {
-            Receive(x =>
-                {
-                    LoadProcessstate(message.Id);
-                    State.When(message);
-                });
+            Receive(e => State.When((dynamic)e), message);
         }
 
         public void Receive(CardCharged message)
         {
-            Receive(x =>
-                {
-                    LoadProcessstate(message.Id);
-                    State.When(message);
-                });
+            Receive(e => State.When((dynamic)e), message);
         }
     }
 }
