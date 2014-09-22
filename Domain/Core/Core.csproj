@@ -39,9 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Availability\AplyHoldOnRoomAvailability.cs" />
-    <Compile Include="Availability\AppliedHoldOnRoom.cs" />
+    <Compile Include="Availability\ApplyHoldOnRoomAvailability.cs" />
+    <Compile Include="BookingProcess\AppliedHoldOnRoom.cs" />
     <Compile Include="Availability\MarkRoomBooked.cs" />
+    <Compile Include="BookingProcess\NoRoomsAvailable.cs" />
     <Compile Include="BookingProcess\CardCharged.cs" />
     <Compile Include="BookingProcess\NewReservation.cs" />
     <Compile Include="BookingProcess\RoomPriced.cs" />
@@ -52,6 +53,8 @@
     <Compile Include="Markers\ICommand.cs" />
     <Compile Include="Markers\IEvent.cs" />
     <Compile Include="Markers\IMessage.cs" />
+    <Compile Include="Payments\ChangeCard.cs" />
+    <Compile Include="Pricing\GetRoomPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sender\Bus.cs" />
     <Compile Include="Sender\ICommandSerder.cs" />

@@ -21,7 +21,7 @@ namespace InventoryService.Commands
             this.roomBookings = roomBookings;
         }
 
-        public void Handle(AplyHoldOnRoomAvailability c)
+        public void Handle(ApplyHoldOnRoomAvailability c)
         {
             bookRoomRequests.Add(new SubmittedBookRoomRequest()
                 {
