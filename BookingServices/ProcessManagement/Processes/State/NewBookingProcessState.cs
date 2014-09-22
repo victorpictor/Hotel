@@ -22,10 +22,10 @@ namespace ProcessManagement.Processes.State
 
         public NewBookingProcessState(List<IEvent> events)
         {
-            events.ForEach(e => When((dynamic)e));
+            events.ForEach(e => Apply((RoomPriced) ((dynamic)e)));
         }
 
-        public void When(NewReservation ev)
+        public void Apply(NewReservation ev)
         {
             Id = ev.Id;
             PaymentInfo = ev.PaymentInfo;
@@ -37,12 +37,12 @@ namespace ProcessManagement.Processes.State
             CheckOut = ev.CheckOut;
         }
 
-        public void When(RoomPriced ev)
+        public void Apply(RoomPriced ev)
         {
             PaymentAmount = ev.PaymentAmount;
         }
 
-        public void When(CardCharged ev)
+        public void Apply(CardCharged ev)
         {
             PaymentStatus = PaymentStatus.Received;
         }

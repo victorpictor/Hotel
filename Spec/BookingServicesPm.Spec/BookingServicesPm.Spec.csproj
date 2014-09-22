@@ -45,7 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InMemoryEventStore.cs" />
+    <Compile Include="InMemoryMessageSender.cs" />
+    <Compile Include="NewBookingPm\MyNewBookingProcess.cs" />
     <Compile Include="NewBookingPm\State\WhenIRecreateStateFromStream.cs" />
+    <Compile Include="NewBookingPm\WhenNewReservationIsReceived.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,6 +63,7 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
