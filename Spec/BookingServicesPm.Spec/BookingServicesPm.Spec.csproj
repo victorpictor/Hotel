@@ -49,7 +49,11 @@
     <Compile Include="InMemoryMessageSender.cs" />
     <Compile Include="NewBookingPm\MyNewBookingProcess.cs" />
     <Compile Include="NewBookingPm\State\WhenIRecreateStateFromStream.cs" />
+    <Compile Include="NewBookingPm\WhenAppliedHoldOnRoomIsReceived.cs" />
+    <Compile Include="NewBookingPm\WhenAppliedHoldOnRoomIsReceivedAndRoomPriced.cs" />
     <Compile Include="NewBookingPm\WhenNewReservationIsReceived.cs" />
+    <Compile Include="NewBookingPm\WhenRoomPricedIsReceived.cs" />
+    <Compile Include="NewBookingPm\WhenRoomPricedIsReceivedAndHoldingAvailability.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

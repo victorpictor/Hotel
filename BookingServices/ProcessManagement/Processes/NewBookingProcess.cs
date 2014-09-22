@@ -1,6 +1,7 @@
 ﻿using System;
 using Core.BookingProcess;
 using Core.Markers;
+using Core.Payments;
 using Core.Pricing;
 using Core.Sender;
 using Core.Store;
@@ -53,11 +54,17 @@ namespace ProcessManagement.Processes
         public void Receive(RoomPriced message)
         {
             Receive(e => State.Apply((dynamic)e), message);
+
+            if (State.HoldingAvailability)
+                sender.Send(new ChangeCard(){Id = message.Id, PaymentInfo = State.PaymentInfo, PaymentAmount = State.PaymentAmount});
         }
 
         public void Receive(AppliedHoldOnRoom message)
         {
             Receive(e => State.Apply((dynamic)e), message);
+
+            if (State.RoomPriced)
+                sender.Send(new ChangeCard() { Id = message.Id, PaymentInfo = State.PaymentInfo, PaymentAmount = State.PaymentAmount });
         }
 
         public void Receive(NoRoomsAvailable message)
@@ -66,6 +73,11 @@ namespace ProcessManagement.Processes
         }
 
         public void Receive(CardCharged message)
+        {
+            Receive(e => State.Apply((dynamic)e), message);
+        }
+
+        public void Receive(CardChargeFailed message)
         {
             Receive(e => State.Apply((dynamic)e), message);
         }
