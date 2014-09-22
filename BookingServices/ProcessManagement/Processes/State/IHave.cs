@@ -5,7 +5,7 @@ namespace ProcessManagement.Processes.State
 {
     public abstract class IHave<T>
     {
-        T State { get; set; }
+        protected T State { get; set; }
 
         protected abstract void Receive(Action<IEvent> action, IEvent ev);
 

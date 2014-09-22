@@ -16,13 +16,17 @@ namespace ProcessManagement.Processes.State
         public DateTime CheckIn;
         public DateTime CheckOut;
 
+        public bool HoldingAvailability;
+        public bool RoomPriced;
+
         public PaymentInfo PaymentInfo;
         public PaymentStatus PaymentStatus;
         public PaymentAmount PaymentAmount;
 
+
         public NewBookingProcessState(List<IEvent> events)
         {
-            events.ForEach(e => Apply((RoomPriced) ((dynamic)e)));
+            events.ForEach(e => Apply((dynamic)e));
         }
 
         public void Apply(NewReservation ev)
@@ -40,12 +44,20 @@ namespace ProcessManagement.Processes.State
         public void Apply(RoomPriced ev)
         {
             PaymentAmount = ev.PaymentAmount;
+            RoomPriced = true;
         }
 
         public void Apply(CardCharged ev)
         {
             PaymentStatus = PaymentStatus.Received;
         }
+
+        public void Apply(AppliedHoldOnRoom ev)
+        {
+            HoldingAvailability = true;
+        }
+
+
         
     }
 }
