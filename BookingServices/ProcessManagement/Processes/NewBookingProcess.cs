@@ -56,7 +56,7 @@ namespace ProcessManagement.Processes
             Receive(e => State.Apply((dynamic)e), message);
 
             if (State.HoldingAvailability)
-                sender.Send(new ChangeCard(){Id = message.Id, PaymentInfo = State.PaymentInfo, PaymentAmount = State.PaymentAmount});
+                sender.Send(new ChargeCard(){Id = message.Id, PaymentInfo = State.PaymentInfo, PaymentAmount = State.PaymentAmount});
         }
 
         public void Receive(AppliedHoldOnRoom message)
@@ -64,7 +64,7 @@ namespace ProcessManagement.Processes
             Receive(e => State.Apply((dynamic)e), message);
 
             if (State.RoomPriced)
-                sender.Send(new ChangeCard() { Id = message.Id, PaymentInfo = State.PaymentInfo, PaymentAmount = State.PaymentAmount });
+                sender.Send(new ChargeCard() { Id = message.Id, PaymentInfo = State.PaymentInfo, PaymentAmount = State.PaymentAmount });
         }
 
         public void Receive(NoRoomsAvailable message)
@@ -77,7 +77,7 @@ namespace ProcessManagement.Processes
             Receive(e => State.Apply((dynamic)e), message);
         }
 
-        public void Receive(CardChargeFailed message)
+        public void Receive(ChargeCardFailed message)
         {
             Receive(e => State.Apply((dynamic)e), message);
         }

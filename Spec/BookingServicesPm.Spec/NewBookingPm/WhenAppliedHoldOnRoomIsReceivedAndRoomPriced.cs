@@ -42,9 +42,9 @@ namespace BookingServicesPm.Spec.NewBookingPm
         [Test]
         public void It_should_send_ChangeCard_message()
         {
-            var command = (ChangeCard)sender.Sent[0];
+            var command = (ChargeCard)sender.Sent[0];
 
-            Assert.AreEqual(typeof(ChangeCard), command.GetType());
+            Assert.AreEqual(typeof(ChargeCard), command.GetType());
             Assert.AreEqual(command.Id, processId);
             Assert.AreEqual(43.00, command.PaymentAmount.Amount);
         }

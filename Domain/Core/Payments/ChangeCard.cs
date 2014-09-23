@@ -4,7 +4,7 @@ using Core.Markers;
 
 namespace Core.Payments
 {
-    public class ChangeCard:ICommand
+    public class ChargeCard:ICommand
     {
         public Guid Id { get; set; }
 

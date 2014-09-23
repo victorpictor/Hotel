@@ -57,6 +57,10 @@ namespace ProcessManagement.Processes.State
             HoldingAvailability = true;
         }
 
+        public void Apply(ChargeCardFailed ev)
+        {
+            PaymentStatus = PaymentStatus.Declined;
+        }
 
         
     }

@@ -42,7 +42,7 @@
     <Compile Include="Availability\ApplyHoldOnRoomAvailability.cs" />
     <Compile Include="BookingProcess\AppliedHoldOnRoom.cs" />
     <Compile Include="Availability\MarkRoomBooked.cs" />
-    <Compile Include="BookingProcess\CardChargeFailed.cs" />
+    <Compile Include="BookingProcess\ChargeCardFailed.cs" />
     <Compile Include="BookingProcess\NoRoomsAvailable.cs" />
     <Compile Include="BookingProcess\CardCharged.cs" />
     <Compile Include="BookingProcess\NewReservation.cs" />
