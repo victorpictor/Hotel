@@ -13,7 +13,10 @@ namespace ProcessManagement.Processes
     public class NewBookingProcess :
         IHave<NewBookingProcessState>,
         IReceiveMessage<NewReservation>,
+        IReceiveMessage<AppliedHoldOnRoom>,
+        IReceiveMessage<NoRoomsAvailable>,
         IReceiveMessage<RoomPriced>,
+        IReceiveMessage<ChargeCardFailed>,
         IReceiveMessage<CardCharged>
     {
 
