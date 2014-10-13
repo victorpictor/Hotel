@@ -21,6 +21,7 @@ namespace ProcessManagement.Processes
 
         private IEventStore store;
         private ICommandSerder sender;
+        private IEventPublisher publisher;
 
         public NewBookingProcess(IEventStore eventStore, ICommandSerder sender)
         {
@@ -30,14 +31,14 @@ namespace ProcessManagement.Processes
 
         protected override void Receive(Action<IEvent> action, IEvent @event)
         {
-            LoadProcessstate(@event.Id);
+            LoadProcessState(@event.Id);
             
             action(@event);
 
             store.AppendToStream(@event.Id,@event);
         }
 
-        private void LoadProcessstate(Guid processId)
+        private void LoadProcessState(Guid processId)
         {
             var history = store.LoadStream(processId);
             this.State = new NewBookingProcessState(history);
@@ -70,16 +71,22 @@ namespace ProcessManagement.Processes
         public void Receive(NoRoomsAvailable message)
         {
             Receive(e => State.Apply((dynamic)e), message);
+
+            publisher.Publish(message);
         }
 
         public void Receive(CardCharged message)
         {
             Receive(e => State.Apply((dynamic)e), message);
+
+            publisher.Publish(message);
         }
 
         public void Receive(ChargeCardFailed message)
         {
             Receive(e => State.Apply((dynamic)e), message);
+
+            publisher.Publish(message);
         }
     }
 }
