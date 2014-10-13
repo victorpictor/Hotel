@@ -7,8 +7,8 @@ namespace BookingServicesPm.Spec.NewBookingPm
 {
     public class MyNewBookingProcess : NewBookingProcess
     {
-        public MyNewBookingProcess(IEventStore eventStore, ICommandSerder sender)
-            : base(eventStore, sender)
+        public MyNewBookingProcess(IEventStore eventStore, ICommandSerder sender, IEventPublisher publisher)
+            : base(eventStore, sender, publisher)
         {
         }
 

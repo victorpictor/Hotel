@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InMemoryEventStore.cs" />
+    <Compile Include="InMemoryMessagePublisher.cs" />
     <Compile Include="InMemoryMessageSender.cs" />
     <Compile Include="NewBookingPm\MyNewBookingProcess.cs" />
     <Compile Include="NewBookingPm\State\WhenIRecreateStateFromStream.cs" />

@@ -14,6 +14,7 @@ namespace BookingServicesPm.Spec.NewBookingPm
         private MyNewBookingProcess newBookingProcess;
         private InMemoryEventStore events;
         private InMemoryMessageSender sender;
+        private InMemoryMessagePublisher publisher;
         private Guid processId;
 
         protected override void Given()
@@ -24,8 +25,9 @@ namespace BookingServicesPm.Spec.NewBookingPm
             events.EventStore = new List<IEvent>() { new RoomPriced() { Id = processId, PaymentAmount = new PaymentAmount() { Id = processId, Amount = 43.00 } } };
 
             sender = new InMemoryMessageSender();
+            publisher = new InMemoryMessagePublisher();
 
-            newBookingProcess = new MyNewBookingProcess(events, sender);
+            newBookingProcess = new MyNewBookingProcess(events, sender, publisher);
         }
 
         protected override void When()

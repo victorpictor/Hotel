@@ -23,10 +23,11 @@ namespace ProcessManagement.Processes
         private ICommandSerder sender;
         private IEventPublisher publisher;
 
-        public NewBookingProcess(IEventStore eventStore, ICommandSerder sender)
+        public NewBookingProcess(IEventStore eventStore, ICommandSerder sender, IEventPublisher publisher)
         {
             this.store = eventStore;
             this.sender = sender;
+            this.publisher = publisher;
         }
 
         protected override void Receive(Action<IEvent> action, IEvent @event)

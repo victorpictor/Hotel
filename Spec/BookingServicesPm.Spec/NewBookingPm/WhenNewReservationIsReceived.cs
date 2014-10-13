@@ -15,6 +15,7 @@ namespace BookingServicesPm.Spec.NewBookingPm
         private MyNewBookingProcess newBookingProcess;
         private InMemoryEventStore events;
         private InMemoryMessageSender sender;
+        private InMemoryMessagePublisher publisher;
         private Guid processId;
         private DateTime checkIn;
         private DateTime checkOut;
@@ -27,8 +28,9 @@ namespace BookingServicesPm.Spec.NewBookingPm
 
             events = new InMemoryEventStore();
             sender = new InMemoryMessageSender();
+            publisher = new InMemoryMessagePublisher();
 
-            newBookingProcess = new MyNewBookingProcess(events, sender);
+            newBookingProcess = new MyNewBookingProcess(events, sender, publisher);
         }
 
         protected override void When()
