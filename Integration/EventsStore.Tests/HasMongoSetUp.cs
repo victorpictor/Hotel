@@ -3,9 +3,9 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Options;
 using MongoDB.Driver;
 
-namespace InventoryDataAccess.Tests
+namespace EventsStore.Tests
 {
-    public class HasMongoSetUp: Specification
+    public class HasMongoSetUp : Specification
     {
         static HasMongoSetUp()
         {
@@ -19,7 +19,7 @@ namespace InventoryDataAccess.Tests
             var client = new MongoClient(new ConnectionString().MongoUrl);
             var server = client.GetServer();
 
-            database = server.GetDatabase(new Configuration().MongoDbName); 
+            database = server.GetDatabase(new Configuration().MongoDbName);
         }
 
         ~HasMongoSetUp()

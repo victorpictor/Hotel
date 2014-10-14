@@ -14,7 +14,6 @@ namespace Inventory.Services
             var r = bookRoomRequestsCollection.Get(requestId);
 
             bookingsCollection.Add(r.RoomId,r.StartDate, r.EndDate);
-            
         }
     }
 }

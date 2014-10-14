@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Core.Markers;
 using Core.Store;
+using MongoDB.Driver.Linq;
 
 namespace EventsStore.StreamReader
 {
@@ -9,7 +11,13 @@ namespace EventsStore.StreamReader
     {
         public List<IEvent> LoadStream(Guid streamId)
         {
-            throw new NotImplementedException();
+            var db = new MongoDbFactory().CreateDb(new Configuration().MongoDbName);
+
+            var events = db.GetCollection<EventDescriptor>("Events");
+
+            var stream = events.AsQueryable().Where(r => r.StreamId == streamId);
+
+            return stream.ToList().Select(e => e.Event).ToList();
         }
 
         public void AppendToStream(Guid streamId, IEvent ev)

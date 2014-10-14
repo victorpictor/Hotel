@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsStore", "Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageTransport", "Infrastructure\MessageTransport\MessageTransport.csproj", "{8D0D4C7F-F210-4C6E-B48D-505955F9FAD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsStore.Tests", "Integration\EventsStore.Tests\EventsStore.Tests.csproj", "{90FA4737-EB64-4237-8E09-952999E886AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{8D0D4C7F-F210-4C6E-B48D-505955F9FAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D0D4C7F-F210-4C6E-B48D-505955F9FAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D0D4C7F-F210-4C6E-B48D-505955F9FAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FA4737-EB64-4237-8E09-952999E886AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FA4737-EB64-4237-8E09-952999E886AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FA4737-EB64-4237-8E09-952999E886AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FA4737-EB64-4237-8E09-952999E886AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,5 +100,6 @@ Global
 		{1CE0F4F6-7A34-40EC-9E80-E37B9B5BCE96} = {4BBCCC7A-FDE7-4858-B29E-64EFE941B017}
 		{5BE60266-F728-43C6-ACAE-E6FC09960745} = {4BBCCC7A-FDE7-4858-B29E-64EFE941B017}
 		{EFB477C6-43FD-486A-B7B5-2EBE37E09248} = {97C2AA8C-1D3C-41EB-953E-AAE752CC4B5E}
+		{90FA4737-EB64-4237-8E09-952999E886AB} = {97C2AA8C-1D3C-41EB-953E-AAE752CC4B5E}
 	EndGlobalSection
 EndGlobal
