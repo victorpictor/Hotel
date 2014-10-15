@@ -17,6 +17,12 @@ namespace EventsStore.StreamReader
             Event = e;
         }
 
+        public EventDescriptor(Guid streamId, IEvent e)
+        {
+            StreamId = streamId;
+            Event = e;
+        }
+
         public Guid StreamId { get; set; }
         public IEvent Event { get; set; }
     

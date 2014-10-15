@@ -22,12 +22,21 @@ namespace EventsStore.StreamReader
 
         public void AppendToStream(Guid streamId, IEvent ev)
         {
-            throw new NotImplementedException();
+            var db = new MongoDbFactory().CreateDb(new Configuration().MongoDbName);
+
+            var events = db.GetCollection<EventDescriptor>("Events");
+
+            events.Save(new EventDescriptor(streamId,ev));
+
         }
 
         public void AppendToStream(Guid streamId, List<IEvent> evs)
         {
-            throw new NotImplementedException();
+            var db = new MongoDbFactory().CreateDb(new Configuration().MongoDbName);
+
+            var events = db.GetCollection<EventDescriptor>("Events");
+
+            evs.ForEach(ev => events.Save(new EventDescriptor(streamId,ev)));
         }
     }
 }
