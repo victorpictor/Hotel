@@ -54,6 +54,7 @@
     <Compile Include="Markers\ICommand.cs" />
     <Compile Include="Markers\IEvent.cs" />
     <Compile Include="Markers\IMessage.cs" />
+    <Compile Include="MessageReceiver\IReceiveMessage.cs" />
     <Compile Include="Payments\ChangeCard.cs" />
     <Compile Include="Pricing\GetRoomPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

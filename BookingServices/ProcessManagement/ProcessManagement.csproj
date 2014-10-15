@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IReceiveMessage.cs" />
     <Compile Include="Processes\CancelationProcess.cs" />
     <Compile Include="Processes\NewBookingProcess.cs" />
     <Compile Include="Processes\RefundProcess.cs" />

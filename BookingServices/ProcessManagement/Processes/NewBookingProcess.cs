@@ -1,6 +1,7 @@
 ﻿using System;
 using Core.BookingProcess;
 using Core.Markers;
+using Core.MessageReceiver;
 using Core.Payments;
 using Core.Pricing;
 using Core.Sender;
