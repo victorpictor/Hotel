@@ -12,7 +12,7 @@ namespace MessageTransport.Receivers
         private readonly Type messageType;
         private readonly List<IReceiveMessage<Type>> handlers;
 
-        public Subscriber(object o, List<IReceiveMessage<Type>> handlers)
+        public Subscriber(dynamic o, List<IReceiveMessage<Type>> handlers)
         {
             this.messageType = o.GetType();
             this.handlers = handlers;
@@ -22,33 +22,30 @@ namespace MessageTransport.Receivers
         {
             try
             {
-                var factory = new ConnectionFactory() { HostName = "config.localhost" };
+                var factory = new ConnectionFactory() { HostName = "localhost" };
                 using (var connection = factory.CreateConnection())
                 {
                     using (var channel = connection.CreateModel())
                     {
-                        channel.QueueDeclare(messageType.Name, true, false, false, null);
+                        channel.QueueDeclarePassive(messageType.Name);
 
-                        channel.BasicQos(0, 1, false);
                         var consumer = new QueueingBasicConsumer(channel);
-                        channel.BasicConsume(messageType.Name, false, consumer);
-
+                        channel.BasicConsume(messageType.Name, true, consumer);
+                      
                         while (true)
                         {
-                            var ea = consumer.Queue.Dequeue();
+                            var eventArgs = consumer.Queue.Dequeue();
 
-                            var body = ea.Body;
-                            
+                            var body = eventArgs.Body;
                             var messageJson = Encoding.UTF8.GetString(body);
-
+                           
                             dynamic message = JsonConvert.DeserializeObject(messageJson, messageType);
-
-                            handlers.ForEach(r => r.Receive(message));
-
-                            channel.BasicAck(ea.DeliveryTag, false);
+                           
+                            handlers.ForEach(h => h.Receive(message));
                         }
                     }
                 }
+
             }
             catch (Exception)
             {
