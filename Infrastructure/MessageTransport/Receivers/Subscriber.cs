@@ -22,7 +22,7 @@ namespace MessageTransport.Receivers
         {
             try
             {
-                var factory = new ConnectionFactory() { HostName = "localhost" };
+                var factory = new ConnectionFactory() { HostName = Config.Host };
                 using (var connection = factory.CreateConnection())
                 {
                     using (var channel = connection.CreateModel())
@@ -45,13 +45,10 @@ namespace MessageTransport.Receivers
                         }
                     }
                 }
-
             }
             catch (Exception)
             {
             }
-
-          
         }
     }
 }
