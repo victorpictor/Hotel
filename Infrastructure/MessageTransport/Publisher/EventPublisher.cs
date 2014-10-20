@@ -9,10 +9,10 @@ namespace MessageTransport.Publisher
     {
         private List<MessageExchange> exchanges = new List<MessageExchange>();
 
-         public EventPublisher(List<MessageExchange> exhanges)
-         {
-             this.exchanges = exhanges;
-         }
+        public EventPublisher(List<MessageExchange> exhanges)
+        {
+            this.exchanges = exhanges;
+        }
 
         public void Publish(IEvent @event)
         {
