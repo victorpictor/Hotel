@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Exchange\WhenDefiningExchangeAnbBindingTestQueue.cs" />
     <Compile Include="Queue\WhenDefinedExchangeAnbBindingTestQueue.cs" />
+    <Compile Include="Senders\WhenIPublishMessage.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
