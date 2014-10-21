@@ -52,6 +52,7 @@
     <Compile Include="Channels\ExchangeType.cs" />
     <Compile Include="Channels\MessageExchange.cs" />
     <Compile Include="Channels\MessagingInfrastructure.cs" />
+    <Compile Include="Channels\MonitoringExchange.cs" />
     <Compile Include="Channels\QueuesSetup.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

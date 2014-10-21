@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Availability;
 using Core.BookingProcess;
 using Core.Markers;
 using Core.MessageReceiver;
@@ -84,6 +85,8 @@ namespace ProcessManagement.Processes
         {
             Receive(e => State.Apply((dynamic)e), message);
 
+            sender.Send(new MarkRoomBooked() { Id = message.Id});
+            
             publisher.Publish(message);
         }
 

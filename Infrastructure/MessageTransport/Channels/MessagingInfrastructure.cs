@@ -1,14 +1,30 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MessageTransport.Channels
 {
     public class MessagingInfrastructure
     {
-        public MessagingInfrastructure(List<MessageExchange> exhanges)
-        {
-            exhanges.ForEach(e => new ExchangeSetup(e.ExchangeName, ExchangeType.Fanout));
+        private List<MessageExchange> exchanges;
 
-            exhanges.ForEach(e => new QueuesSetup(e.MessageName, e.ExchangeName));
-        } 
+        
+        public MessagingInfrastructure SetExchanges(List<MessageExchange> exchanges)
+        {
+            this.exchanges = exchanges;
+
+            exchanges.ForEach(e => new ExchangeSetup(e.ExchangeName, ExchangeType.Fanout));
+
+            exchanges.ForEach(e => new QueuesSetup(e.ExchangeName, e.MessageName));
+
+            return this;
+        }
+
+        public MessagingInfrastructure SetMonitoring(string destinationExchange)
+        {
+            if (exchanges.Any())
+                new MonitoringExchange(destinationExchange, exchanges);
+
+            return this;
+        }
     }
 }

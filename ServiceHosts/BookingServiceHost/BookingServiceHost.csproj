@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Core\Core.csproj">
+      <Project>{C3A8D3DF-A7ED-4187-A74E-1B02A5E95BD2}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\MessageTransport\MessageTransport.csproj">
       <Project>{8d0d4c7f-f210-4c6e-b48d-505955f9fad0}</Project>
       <Name>MessageTransport</Name>
