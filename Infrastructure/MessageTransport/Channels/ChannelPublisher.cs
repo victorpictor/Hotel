@@ -13,13 +13,11 @@ namespace MessageTransport.Channels
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclarePassive(exchange.MessageName);
-
                     var messageSerialized = JsonConvert.SerializeObject(message);
 
                     var body = Encoding.UTF8.GetBytes(messageSerialized);
 
-                    channel.BasicPublish(exchange.ExchangeName, "", null, body);
+                    channel.BasicPublish(exchange.ExchangeName, message.GetType().Name, null, body);
                 }
             }
         }

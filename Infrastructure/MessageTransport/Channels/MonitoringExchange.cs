@@ -12,7 +12,9 @@ namespace MessageTransport.Channels
             {
                 using (var channel = connection.CreateModel())
                 {
-                    messageExchanges.ForEach(e => channel.ExchangeBind(e.ExchangeName, exchangeName, string.Empty));
+                    channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
+
+                    messageExchanges.ForEach(e => channel.ExchangeBind(exchangeName, e.ExchangeName, string.Empty));
                 }
             }
         }

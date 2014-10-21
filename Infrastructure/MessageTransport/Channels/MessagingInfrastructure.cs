@@ -12,7 +12,7 @@ namespace MessageTransport.Channels
         {
             this.exchanges = exchanges;
 
-            exchanges.ForEach(e => new ExchangeSetup(e.ExchangeName, ExchangeType.Fanout));
+            exchanges.ForEach(e => new ExchangeSetup(e.ExchangeName, ExchangeType.Topic));
 
             exchanges.ForEach(e => new QueuesSetup(e.ExchangeName, e.MessageName));
 
