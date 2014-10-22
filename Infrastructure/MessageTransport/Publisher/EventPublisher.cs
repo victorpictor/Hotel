@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Core.Markers;
 using Core.Sender;
 using MessageTransport.Channels;
@@ -8,6 +9,7 @@ namespace MessageTransport.Publisher
     public class EventPublisher : IEventPublisher
     {
         private List<MessageExchange> exchanges = new List<MessageExchange>();
+        private ChannelPublisher publisher = new ChannelPublisher();
 
         public EventPublisher(List<MessageExchange> exhanges)
         {
@@ -16,7 +18,7 @@ namespace MessageTransport.Publisher
 
         public void Publish(IEvent @event)
         {
-            throw new System.NotImplementedException();
+            publisher.Publish(@event, exchanges.FirstOrDefault(e => e.MessageName == @event.GetType().Name));
         }
     }
 }

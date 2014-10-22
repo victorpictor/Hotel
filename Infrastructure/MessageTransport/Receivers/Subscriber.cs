@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Markers;
 using Core.MessageReceiver;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -11,6 +12,7 @@ namespace MessageTransport.Receivers
     {
         private readonly Type messageType;
         private readonly List<IReceiveMessage<Type>> handlers;
+
 
         public Subscriber(dynamic o, List<IReceiveMessage<Type>> handlers)
         {

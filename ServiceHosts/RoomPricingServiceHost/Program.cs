@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.Payments;
+using Core.Pricing;
 using MessageTransport.Channels;
 using MessageTransport.Receivers;
 using MessageTransport.Sender;
 
-namespace ChargeCardServiceHost
+namespace RoomPricingServiceHost
 {
     class Program
     {
         static void Main(string[] args)
         {
-
             var messageExchanges = new List<MessageExchange>()
                 {
-                    new MessageExchange(typeof (ChargeCard).Name, "hotel.card.charges"),
+                   new MessageExchange(typeof (GetRoomPrice).Name, "hotel.room.prices"),
                 };
 
             new MessagingInfrastructure()
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new MessageSender(messageExchanges).Send(new ChargeCard() { Id = Guid.NewGuid() });
+            new MessageSender(messageExchanges).Send(new GetRoomPrice() { Id = Guid.NewGuid() });
 
-            new Subscriber(new ChargeCard(), null).Start();
-            
+            new Subscriber(new GetRoomPrice(), null).Start();
         }
     }
 }

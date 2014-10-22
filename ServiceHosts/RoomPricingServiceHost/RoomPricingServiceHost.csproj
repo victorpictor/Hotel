@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6952DB08-4919-4797-A234-B1A3DF7E40C0}</ProjectGuid>
+    <ProjectGuid>{02B9D590-02AE-48AD-AD68-E1FA247100C9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChargeCardServiceHost</RootNamespace>
-    <AssemblyName>ChargeCardServiceHost</AssemblyName>
+    <RootNamespace>RoomPricingServiceHost</RootNamespace>
+    <AssemblyName>RoomPricingServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
