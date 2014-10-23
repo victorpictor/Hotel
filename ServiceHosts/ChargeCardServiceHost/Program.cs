@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.MessageReceiver;
 using Core.Payments;
 using MessageTransport.Channels;
 using MessageTransport.Receivers;
 using MessageTransport.Sender;
+using Messages.Availability;
 
 namespace ChargeCardServiceHost
 {
@@ -23,7 +25,7 @@ namespace ChargeCardServiceHost
 
             new MessageSender(messageExchanges).Send(new ChargeCard() { Id = Guid.NewGuid() });
 
-            new Subscriber(new ChargeCard(), null).Start();
+            new Subscriber<IReceiveMessage<ChargeCard>>(null).Start();
             
         }
     }

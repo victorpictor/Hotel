@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.MessageReceiver;
 using Core.Pricing;
 using MessageTransport.Channels;
 using MessageTransport.Receivers;
@@ -22,7 +23,7 @@ namespace RoomPricingServiceHost
 
             new MessageSender(messageExchanges).Send(new GetRoomPrice() { Id = Guid.NewGuid() });
 
-            new Subscriber(new GetRoomPrice(), null).Start();
+            new Subscriber<IReceiveMessage<GetRoomPrice>>(null).Start();
         }
     }
 }

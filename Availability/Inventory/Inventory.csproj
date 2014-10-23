@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageHandlers\InventoryHandler.cs" />
     <Compile Include="Services\Exceptions\NotFoundRoom.cs" />
     <Compile Include="Writes\IBookRoomRequests.cs" />
     <Compile Include="HotelRoom\SubmittedBookRoomRequest.cs" />

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using Core.Availability;
 using Core.BookingProcess;
+using Core.MessageReceiver;
 using MessageTransport.Channels;
+using MessageTransport.Publisher;
 using MessageTransport.Receivers;
-using MessageTransport.Sender;
-using Messages.Availability;
 
 namespace BookingServiceHost
 {
@@ -28,11 +28,9 @@ namespace BookingServiceHost
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new MessageSender(messageExchanges).Send(new ApplyHoldOnRoomAvailability() { Id = Guid.NewGuid() });
-            new MessageSender(messageExchanges).Send(new MarkRoomBooked() { Id = Guid.NewGuid() });
-
-            new Subscriber(new ApplyHoldOnRoomAvailability(), null).Start();
-            new Subscriber(new MarkRoomBooked(), null).Start();
+            new EventPublisher(messageExchanges).Publish(new RoomPriced() { Id = Guid.NewGuid() });
+            
+            new Subscriber<IReceiveMessage<RoomPriced>>(null).Start();
         }
     }
 }

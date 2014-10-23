@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>eaac4ecc-dd8b-4900-8f1d-c1b422c4cb0b</ProjectGuid>
+    <ProjectGuid>{B2E5241C-2947-4296-9EEB-777335771FCA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RoomAvailabilityServiceHost</RootNamespace>
@@ -41,8 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binding\Container.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Availability\Inventory\Inventory.csproj">
+      <Project>{F5B2594E-E6B1-496B-92D4-C3CFA3A225AF}</Project>
+      <Name>Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Core\Core.csproj">
+      <Project>{c3a8d3df-a7ed-4187-a74e-1b02a5e95bd2}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\InventoryDataAccess\InventoryDataAccess.csproj">
+      <Project>{effcfe7c-4328-46d4-a14a-5734552baa20}</Project>
+      <Name>InventoryDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\MessageTransport\MessageTransport.csproj">
+      <Project>{8d0d4c7f-f210-4c6e-b48d-505955f9fad0}</Project>
+      <Name>MessageTransport</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

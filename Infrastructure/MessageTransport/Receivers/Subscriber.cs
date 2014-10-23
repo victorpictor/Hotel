@@ -1,30 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
-using Core.Markers;
-using Core.MessageReceiver;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
 namespace MessageTransport.Receivers
 {
-    public class Subscriber
+    public class Subscriber<T>
     {
         private readonly Type messageType;
-        private readonly List<IReceiveMessage<Type>> handlers;
+        private readonly T receiver;
 
 
-        public Subscriber(dynamic o, List<IReceiveMessage<Type>> handlers)
+        public Subscriber(T receiver)
         {
-            this.messageType = o.GetType();
-            this.handlers = handlers;
+            if (GetType().IsGenericType)
+            {
+                this.messageType = GetType()
+                        .GetGenericArguments()[0]
+                        .GetGenericArguments()[0];
+            }
+
+
+            this.receiver = receiver;
         }
+
 
         public void Start()
         {
+            Task.Factory.StartNew(Run);
+        }
+
+        public void Run()
+        {
             try
             {
-                var factory = new ConnectionFactory() { HostName = Config.Host };
+                var factory = new ConnectionFactory() {HostName = Config.Host};
                 using (var connection = factory.CreateConnection())
                 {
                     using (var channel = connection.CreateModel())
@@ -33,17 +44,17 @@ namespace MessageTransport.Receivers
 
                         var consumer = new QueueingBasicConsumer(channel);
                         channel.BasicConsume(messageType.Name, true, consumer);
-                      
+
                         while (true)
                         {
                             var eventArgs = consumer.Queue.Dequeue();
 
                             var body = eventArgs.Body;
                             var messageJson = Encoding.UTF8.GetString(body);
-                           
+
                             dynamic message = JsonConvert.DeserializeObject(messageJson, messageType);
-                           
-                            handlers.ForEach(h => h.Receive(message));
+
+                            ((dynamic) receiver).Receive(message);
                         }
                     }
                 }
