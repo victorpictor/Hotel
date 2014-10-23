@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
@@ -28,7 +28,10 @@ namespace MessageTransport.Receivers
 
         public void Start()
         {
-            Task.Factory.StartNew(Run);
+            // add supervisor
+            var task = new Thread(Run);
+            
+            task.Start();
         }
 
         public void Run()

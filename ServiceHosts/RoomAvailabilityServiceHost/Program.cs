@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Availability;
-using Core.Markers;
 using Core.MessageReceiver;
 using MessageTransport.Channels;
 using MessageTransport.Receivers;
