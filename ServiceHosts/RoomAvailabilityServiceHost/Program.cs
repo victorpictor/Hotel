@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Availability;
+using Core.Booking.TheRoom;
+using Core.BookingProcess;
 using Core.MessageReceiver;
 using MessageTransport.Channels;
+using MessageTransport.Publisher;
 using MessageTransport.Receivers;
 using MessageTransport.Sender;
 using Messages.Availability;
@@ -24,12 +27,9 @@ namespace RoomAvailabilityServiceHost
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new MessageSender().Send(new ApplyHoldOnRoomAvailability() { Id = Guid.NewGuid() });
-            new MessageSender().Send(new MarkRoomBooked() { Id = Guid.NewGuid() });
-
+            new EventPublisher().Publish(new NewReservation() { Id = Guid.NewGuid(), CheckIn = DateTime.Now.AddDays(10), CheckOut = DateTime.Now.AddDays(15), RoomType = RoomType.Queen});
             
             new Subscriber<IReceiveMessage<ApplyHoldOnRoomAvailability>>(Container.GetInventoryHandler()).Start();
-
             new Subscriber<IReceiveMessage<MarkRoomBooked>>(Container.GetInventoryHandler()).Start();
         }
     }

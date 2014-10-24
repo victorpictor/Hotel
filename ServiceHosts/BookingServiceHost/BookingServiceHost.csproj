@@ -41,13 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binding\Container.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BookingServices\ProcessManagement\ProcessManagement.csproj">
+      <Project>{58bc01ef-8780-4f47-a492-948e20b534d2}</Project>
+      <Name>ProcessManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\Core\Core.csproj">
       <Project>{C3A8D3DF-A7ED-4187-A74E-1B02A5E95BD2}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\EventsStore\EventsStore.csproj">
+      <Project>{3B4F2310-F715-4D52-A45E-6659C3299E7A}</Project>
+      <Name>EventsStore</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\MessageTransport\MessageTransport.csproj">
       <Project>{8d0d4c7f-f210-4c6e-b48d-505955f9fad0}</Project>

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using BookingServiceHost.Binding;
 using Core.Availability;
 using Core.BookingProcess;
 using Core.MessageReceiver;
 using MessageTransport.Channels;
 using MessageTransport.Publisher;
 using MessageTransport.Receivers;
+using ProcessManagement.Processes;
 
 namespace BookingServiceHost
 {
@@ -28,9 +30,13 @@ namespace BookingServiceHost
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new EventPublisher().Publish(new RoomPriced() { Id = Guid.NewGuid() });
-            
-            new Subscriber<IReceiveMessage<RoomPriced>>(null).Start();
+            //concurrency problem  
+            new Subscriber<IReceiveMessage<NewReservation>>(Container.GetNewBookingProcess()).Start();
+            new Subscriber<IReceiveMessage<RoomPriced>>(Container.GetNewBookingProcess()).Start();
+            new Subscriber<IReceiveMessage<AppliedHoldOnRoom>>(Container.GetNewBookingProcess()).Start();
+            new Subscriber<IReceiveMessage<NoRoomsAvailable>>(Container.GetNewBookingProcess()).Start();
+            new Subscriber<IReceiveMessage<CardCharged>>(Container.GetNewBookingProcess()).Start();
+            new Subscriber<IReceiveMessage<ChargeCardFailed>>(Container.GetNewBookingProcess()).Start();
         }
     }
 }

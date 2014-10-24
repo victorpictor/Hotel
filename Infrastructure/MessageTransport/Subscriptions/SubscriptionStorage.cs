@@ -22,7 +22,7 @@ namespace MessageTransport.Subscriptions
         {
             var xchs = GetCollection(); 
 
-            var existing = xchs.AsQueryable().Where(r => r.ExchangeName == xch.ExchangeName && r.MessageName == xch.ExchangeName).ToList();
+            var existing = xchs.AsQueryable().Where(r => r.ExchangeName == xch.ExchangeName && r.MessageName == xch.MessageName).ToList();
 
             if (existing.Any())
                 return;
