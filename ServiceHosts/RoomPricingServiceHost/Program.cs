@@ -21,7 +21,7 @@ namespace RoomPricingServiceHost
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new MessageSender(messageExchanges).Send(new GetRoomPrice() { Id = Guid.NewGuid() });
+            new MessageSender().Send(new GetRoomPrice() { Id = Guid.NewGuid() });
 
             new Subscriber<IReceiveMessage<GetRoomPrice>>(null).Start();
         }

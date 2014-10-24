@@ -3,18 +3,14 @@ using System.Linq;
 using Core.Markers;
 using Core.Sender;
 using MessageTransport.Channels;
+using MessageTransport.Subscriptions;
 
 namespace MessageTransport.Publisher
 {
     public class EventPublisher : IEventPublisher
     {
-        private List<MessageExchange> exchanges = new List<MessageExchange>();
+        private List<MessageExchange> exchanges = new SubscriptionStorage().AllMessageExchanges();
         private ChannelPublisher publisher = new ChannelPublisher();
-
-        public EventPublisher(List<MessageExchange> exhanges)
-        {
-            this.exchanges = exhanges;
-        }
 
         public void Publish(IEvent @event)
         {

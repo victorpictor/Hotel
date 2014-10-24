@@ -24,8 +24,8 @@ namespace RoomAvailabilityServiceHost
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new MessageSender(messageExchanges).Send(new ApplyHoldOnRoomAvailability() { Id = Guid.NewGuid() });
-            new MessageSender(messageExchanges).Send(new MarkRoomBooked() { Id = Guid.NewGuid() });
+            new MessageSender().Send(new ApplyHoldOnRoomAvailability() { Id = Guid.NewGuid() });
+            new MessageSender().Send(new MarkRoomBooked() { Id = Guid.NewGuid() });
 
             
             new Subscriber<IReceiveMessage<ApplyHoldOnRoomAvailability>>(Container.GetInventoryHandler()).Start();

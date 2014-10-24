@@ -56,6 +56,7 @@
     <Compile Include="Repositories\RoomBookings.cs" />
     <Compile Include="Repositories\RoomPrices.cs" />
     <Compile Include="Repositories\Rooms.cs" />
+    <Compile Include="Repositories\SubmittedBookRoomRequests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Availability\Inventory\Inventory.csproj">

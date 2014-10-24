@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\lib\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\lib\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -59,6 +65,7 @@
     <Compile Include="Publisher\EventPublisher.cs" />
     <Compile Include="Receivers\Subscriber.cs" />
     <Compile Include="Sender\MessageSender.cs" />
+    <Compile Include="Subscriptions\SubscriptionStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Core\Core.csproj">

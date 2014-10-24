@@ -23,7 +23,7 @@ namespace ChargeCardServiceHost
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new MessageSender(messageExchanges).Send(new ChargeCard() { Id = Guid.NewGuid() });
+            new MessageSender().Send(new ChargeCard() { Id = Guid.NewGuid() });
 
             new Subscriber<IReceiveMessage<ChargeCard>>(null).Start();
             

@@ -1,4 +1,6 @@
-﻿namespace MessageTransport.Channels
+﻿using System;
+
+namespace MessageTransport.Channels
 {
     public class MessageExchange
     {
@@ -7,6 +9,8 @@
             MessageName = messageName;
             ExchangeName = exchangeName;
         }
+
+        public Guid Id = Guid.NewGuid();
 
         public string MessageName;
         public string ExchangeName;

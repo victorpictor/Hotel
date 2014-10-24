@@ -9,21 +9,14 @@ namespace RoomAvailabilityServiceHost.Binding
 {
     public class Container
     {
-        private static List<MessageExchange> exchanges;
-
-        public static void Init(List<MessageExchange> exch)
-        {
-            exchanges = exch;
-        }
-
         public static IEventPublisher GetPublisher()
         {
-            return new EventPublisher(exchanges);
+            return new EventPublisher();
         }
 
         public static InventoryHandler GetInventoryHandler()
         {
-            return new InventoryHandler(GetPublisher(), null, new BookRoomRequests(), new RoomBookings() );
+            return new InventoryHandler(GetPublisher(), new SubmittedBookRoomRequests(), new BookRoomRequests(), new RoomBookings());
         }
     }
 }

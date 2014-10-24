@@ -28,7 +28,7 @@ namespace BookingServiceHost
                 .SetExchanges(messageExchanges)
                 .SetMonitoring("hotel.process.monitoring");
 
-            new EventPublisher(messageExchanges).Publish(new RoomPriced() { Id = Guid.NewGuid() });
+            new EventPublisher().Publish(new RoomPriced() { Id = Guid.NewGuid() });
             
             new Subscriber<IReceiveMessage<RoomPriced>>(null).Start();
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MessageTransport.Subscriptions;
 
 namespace MessageTransport.Channels
 {
@@ -16,6 +17,8 @@ namespace MessageTransport.Channels
 
             exchanges.ForEach(e => new QueuesSetup(e.ExchangeName, e.MessageName));
 
+            exchanges.ForEach(e => new SubscriptionStorage().Store(e));
+           
             return this;
         }
 
